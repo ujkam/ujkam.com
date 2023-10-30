@@ -1,7 +1,7 @@
 +++
 title = 'Mermaid Test'
 date = 2023-10-29T13:58:06-04:00
-draft = true
+draft = false
 mermaid = true
 +++
 
