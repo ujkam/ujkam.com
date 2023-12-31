@@ -1,7 +1,7 @@
 ##########################################
 # Site Settings
 
-baseURL = "https://ujkam.com/"
+baseURL = "http://www.ujkam.com/"
 title = "Ujval's Blog"
 languageCode = "en"
 hasCJKLanguage = false
@@ -802,7 +802,7 @@ uglyURLs = false
     #            supported
 
     # The content width of the post
-    postWidth = ""
+    postWidth = 36
     # Note: you can leave it empty("") to
     #       fallback to the default value: 42
     #       Unit: em
