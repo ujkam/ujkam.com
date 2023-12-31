@@ -4,7 +4,7 @@ date = 2023-10-29T13:58:06-04:00
 draft = false
 mermaid = true
 +++
-This is a test post.  First, we check if the summary is displayed correctedly.
+This is a test post.  First, we check if the summary is displayed correctly.
 
 <!--more-->
 
