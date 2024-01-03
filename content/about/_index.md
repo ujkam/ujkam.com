@@ -9,6 +9,9 @@ This blog is really a manifestation of things I kept seeing across industries.  
 
 There's no shortage of amazing content in data science writing great technical content, and I don't feel like I have much to add there.  Most of the posts on this blog will be probably be focused on exploring the business side of trying to do data science with Industrial Machines.  In other words, instead of talking about the latest algorithm or library, I'll probably focus on the people side of things and the financial realities we need to account for when trying to justify a data science project. 
 
+
+This website was built using [Hugo](https://gohugo.io/) and uses the [Meme Theme](https://github.com/reuixiy/hugo-theme-meme)
+
      
 
 
