@@ -1,6 +1,6 @@
 
 +++
-title = "ABOUT"
+title = "About"
 date = "2024-01-01T00:00:00-4:00"
 +++
 Hi, I'm Ujval.  I've worked as a Data Scientist for over a decade now.  While it wasn't intentional, a large portion of that decade was focused on use cases involving Industrial Equipment.  This included Oil & Gas Extraction and Processing, Commercial Medical Equipment, and Automotive, Pharmaceutical, and Electrical Equipment Manufacturing.  Eight years of those years were in the consulting arm of software companies, so I was able to see what different companies were trying to do with data and machine learning.  In all my jobs I worked with many different stakeholders and experienced both the business and technical side of things and got better at trying to understand why (e.g. the cost savings) people wanted to do things, and not just the technical how.  
