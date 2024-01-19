@@ -17,7 +17,7 @@
 #    url = "mailto:reuixiy@gmail.com"
 #    icon = "envelope"
 #    title = "Email"
-#    weight = 2
+#    weight =  2
 
 [[socials]]
     id = "github"
