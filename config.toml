@@ -1,7 +1,7 @@
 ##########################################
 # Site Settings
 
-baseURL = "http://www.ujkam.com/"
+baseURL = "http://ujkam.com/"
 title = "Ujval's Blog"
 languageCode = "en"
 hasCJKLanguage = false
