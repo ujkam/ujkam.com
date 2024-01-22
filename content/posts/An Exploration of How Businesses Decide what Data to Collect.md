@@ -79,11 +79,10 @@ In most companies you'll also see another form of data ownership, which is who o
 
 Let's assume all the business and technical owners/organizations are at a single company called Company A that designs, makes, and runs the machine(s).  Everything is internal and there are no external vendors who own these functions.
 
-The "owners" are shown in the chart below.  To make this easier to read, the boxes with red borders are the business owners.  The other teams work with the data and build things (e.g. Dashboards) with it, but ultimately the business owners are the ones using this data to reduce costs or increase profits
+The "owners" are shown in the chart below.  To make this easier to read, the boxes with red borders (Engineering, Service, and Quality) are the business owners.  The other teams work with the data and build things (e.g. Dashboards) with it, but ultimately the business owners are the ones using this data to reduce costs or increase profits
 
 <div class="mermaid">
 flowchart TD
-	subgraph Company A
 		subgraph Engineering
 		M[Machine]
 		end
@@ -102,7 +101,6 @@ flowchart TD
 		subgraph A[Analytics]
 		DS[Data Scientst]
 		end
-	end
     style Engineering stroke:#ff0000
     style Service stroke:#ff0000
     style Quality stroke:#ff0000
