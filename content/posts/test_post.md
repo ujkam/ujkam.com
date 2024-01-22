@@ -16,3 +16,7 @@ Let's try mermaid.js now
 flowchart LR
 	Up --> Down --> Left --> Right
 </div>
+
+<body>
+  <div> {{ $pages }} </div>
+</body>
