@@ -1,5 +1,5 @@
 +++
-title = 'An Exploration of how Businesses Decide what Data to Collect'
+title = 'Businesses Stakeholders are the ones who Define why Data Should be Collected'
 date = 2024-01-01T00:00:00-04:00
 lastmod = 2024-01-19T00:00:00-04:00 
 draft = false
@@ -19,7 +19,7 @@ What people mean by "useful" is not static.  Different stakeholders and organiza
 This post will be the first of two that discusses the organizational dynamics I've seen with companies trying to do predictive maintenance.  The overall goal is to try and provide some insight into how different stakeholders with different business motivations can influence what data is collected and how it's used.  To get there, it's useful to look first at the architecture of how data might flow in a predictive maintenance project and then make this more concrete using examples of what data is generated and collected on a machine.
 
 To avoid the this post turning into a novella, I will break this into 2 parts.
-1. This first post will present some data architectures as a framework to explore how different organizational structures can drive what data is collected and how it's used.
+1. This first post will present some data architectures as a framework to explore how different organizational structures can drive why and what data is collected and how it's used.
 2. [**Deciding What Data to Collect**]({{< ref "Deciding What Data to Collect" >}}).  The second post will provide more concrete examples of what data people might want to collect from a machine, and their motivations for doing so.  It'll be more technical, but I think this will provide a lot of context to the first post regardless of if you care about technical details or not. 
 
 I don't think there's an absolutely correct way order these posts, but I thought it made sense to start with architecture first.  If you prefer to jump from here to the second post and then come back to read the rest of this post, that shouldn't be an issue.

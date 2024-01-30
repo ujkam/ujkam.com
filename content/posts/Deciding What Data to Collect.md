@@ -5,7 +5,7 @@ draft = false
 mermaid = true
 +++
 
-In my [**previous post**]({{< ref "An Exploration of how Businesses Decide what Data to Collect" >}}), we looked at how stakeholders and organizational structures influence decisions about what data is collected and exposed for use.  If you haven't seen machine data before, that post might have felt a little abstract and some things might have felt contradictory (e.g. how does one look at the events before a failure without any sensor data?).  For people who prefer concrete details and real examples, this post is for you. 
+In my [**previous post**]({{< ref "Businesses Stakeholders Define why Data Should be Collected" >}}), we looked at how stakeholders and organizational structures influence decisions about what data is collected and exposed for use.  If you haven't seen machine data before, that post might have felt a little abstract and some things might have felt contradictory (e.g. how does one look at the events before a failure without any sensor data?).  For people who prefer concrete details and real examples, this post is for you. 
 
 <!--more-->
 
