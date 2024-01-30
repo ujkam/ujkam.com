@@ -20,7 +20,7 @@ This post will be the first of two that discusses the organizational dynamics I'
 
 To avoid the this post turning into a novella, I will break this into 2 parts.
 1. This first post will present some data architectures as a framework to explore how different organizational structures can drive what data is collected and how it's used.
-2. Deciding What Data to Collect.  The second post will provide more concrete examples of what data people might want to collect from a machine, and their motivations for doing so.  It'll be more technical, but I think this will provide a lot of context to the first post regardless of if you care about technical details or not. 
+2. [**Deciding What Data to Collect**]({{< ref "Deciding What Data to Collect" >}}).  The second post will provide more concrete examples of what data people might want to collect from a machine, and their motivations for doing so.  It'll be more technical, but I think this will provide a lot of context to the first post regardless of if you care about technical details or not. 
 
 I don't think there's an absolutely correct way order these posts, but I thought it made sense to start with architecture first.  If you prefer to jump from here to the second post and then come back to read the rest of this post, that shouldn't be an issue.
 # Introduction
