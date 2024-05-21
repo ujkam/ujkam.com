@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8" />
+
+    <meta name="generator" content="Hugo 0.126.1"><meta name="theme-color" content="#fff" />
+    <meta name="color-scheme" content="light dark">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+    
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <title>Deciding what Data to Collect | Ujval&#39;s Blog</title>
+
+    <link rel="stylesheet" href="/css/meme.min.b91371652fd1f74ae16e0459f4ae3a732ac056582b31a579b9cdc752e780cbc8.css"/>
+
+    
+    
+        
+            <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" defer></script><script src="/js/meme.min.22dd5f9217dd6500aff8bc2a93128785fb7999092297ce00efd3046f2f5099c4.js"></script>
+
+        
+    
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM&#43;Plex&#43;Serif:ital,wght@0,400;0,500;0,700;1,400;1,700&amp;family=Source&#43;Code&#43;Pro:ital,wght@0,400;0,700;1,400;1,700&amp;family=Comfortaa:wght@700&amp;display=swap" media="print" onload="this.media='all'" />
+        <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM&#43;Plex&#43;Serif:ital,wght@0,400;0,500;0,700;1,400;1,700&amp;family=Source&#43;Code&#43;Pro:ital,wght@0,400;0,700;1,400;1,700&amp;family=Comfortaa:wght@700&amp;display=swap" /></noscript>
+
+    <meta name="author" content="Ujval Kamath" /><meta name="description" content="In my previous post, we looked at how stakeholders and organizational structures influence decisions about what data is collected and exposed for use. If you haven’t seen machine data before, that post might have felt a little abstract and some things might have felt contradictory (e.g. how does one look at the events before a failure without any sensor data?). For people who prefer concrete details and real examples, this post is for you.
+" />
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#2a6df4" /> 
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Ujval&#39;s Blog" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="Ujval&#39;s Blog" />
+    <meta name="msapplication-starturl" content="../../" />
+    <meta name="msapplication-TileColor" content="#fff" />
+    <meta name="msapplication-TileImage" content="../../icons/mstile-150x150.png" />
+    <link rel="manifest" href="/manifest.json" />
+
+    
+    
+
+    
+        <link rel="canonical" href="http://localhost:1313/posts/deciding-what-data-to-collect/" />
+    
+
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "datePublished": "2024-01-23T00:00:00-04:00",
+        "dateModified": "2024-01-30T10:17:17-05:00",
+        "url": "http://localhost:1313/posts/deciding-what-data-to-collect/",
+        "headline": "Deciding what Data to Collect",
+        "description": "In my previous post, we looked at how stakeholders and organizational structures influence decisions about what data is collected and exposed for use. If you haven’t seen machine data before, that post might have felt a little abstract and some things might have felt contradictory (e.g. how does one look at the events before a failure without any sensor data?). For people who prefer concrete details and real examples, this post is for you.\n",
+        "inLanguage" : "en",
+        "articleSection": "posts",
+        "wordCount":  4449 ,
+        "author": {
+            "@type": "Person",
+            "url": "http://localhost:1313/",
+            "name": "Ujval Kamath"
+        },
+        "license": "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Ujval's Blog",
+            "url": "http://localhost:1313/"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebSite",
+            "@id": "http://localhost:1313/"
+        }
+    }
+</script>
+
+    
+
+<meta name="twitter:card" content="summary" />
+
+
+    
+
+
+
+<meta property="og:title" content="Deciding what Data to Collect" />
+<meta property="og:description" content="In my previous post, we looked at how stakeholders and organizational structures influence decisions about what data is collected and exposed for use. If you haven’t seen machine data before, that post might have felt a little abstract and some things might have felt contradictory (e.g. how does one look at the events before a failure without any sensor data?). For people who prefer concrete details and real examples, this post is for you.
+" />
+<meta property="og:url" content="http://localhost:1313/posts/deciding-what-data-to-collect/" />
+<meta property="og:site_name" content="Ujval&#39;s Blog" />
+<meta property="og:locale" content="en" /><meta property="og:type" content="article" />
+    <meta property="article:published_time" content="2024-01-23T00:00:00-04:00" />
+    <meta property="article:modified_time" content="2024-01-30T10:17:17-05:00" />
+    
+    <meta property="article:section" content="posts" />
+
+
+
+    
+    
+
+    
+</head>
+
+    <body>
+        <div class="container">
+            
+    <header class="header">
+        
+            <div class="header-wrapper">
+                <div class="header-inner single">
+                    
+    <div class="site-brand">
+        
+            <a href="/" class="brand">Ujval&#39;s Blog</a>
+        
+    </div>
+
+                    <nav class="nav">
+    <ul class="menu" id="menu">
+        
+            
+        
+        
+        
+        
+            
+                <li class="menu-item"><a href="/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="icon home"><path d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"/></svg><span class="menu-item-name">Home</span></a>
+                </li>
+            
+        
+            
+                <li class="menu-item active"><a href="/posts/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon archive"><path d="M32 448c0 17.7 14.3 32 32 32h384c17.7 0 32-14.3 32-32V160H32v288zm160-212c0-6.6 5.4-12 12-12h104c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12H204c-6.6 0-12-5.4-12-12v-8zM480 32H32C14.3 32 0 46.3 0 64v48c0 8.8 7.2 16 16 16h480c8.8 0 16-7.2 16-16V64c0-17.7-14.3-32-32-32z"/></svg><span class="menu-item-name">Posts</span></a>
+                </li>
+            
+        
+            
+                <li class="menu-item"><a href="/about/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="icon user-circle"><path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 96c48.6 0 88 39.4 88 88s-39.4 88-88 88-88-39.4-88-88 39.4-88 88-88zm0 344c-58.7 0-111.3-26.6-146.5-68.2 18.8-35.4 55.6-59.8 98.5-59.8 2.4 0 4.8.4 7.1 1.1 13 4.2 26.6 6.9 40.9 6.9 14.3 0 28-2.7 40.9-6.9 2.3-.7 4.7-1.1 7.1-1.1 42.9 0 79.7 24.4 98.5 59.8C359.3 421.4 306.7 448 248 448z"/></svg><span class="menu-item-name">About</span></a>
+                </li>
+            
+        
+            
+                
+                    
+                    
+                        <li class="menu-item">
+                            <a id="theme-switcher" href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon theme-icon-light"><path d="M193.2 104.5l48.8-97.5a18 18 0 0128 0l48.8 97.5 103.4 -34.5a18 18 0 0119.8 19.8l-34.5 103.4l97.5 48.8a18 18 0 010 28l-97.5 48.8 34.5 103.4a18 18 0 01-19.8 19.8l-103.4-34.5-48.8 97.5a18 18 0 01-28 0l-48.8-97.5l-103.4 34.5a18 18 0 01-19.8-19.8l34.5-103.4-97.5-48.8a18 18 0 010-28l97.5-48.8-34.5-103.4a18 18 0 0119.8-19.8zM256 128a128 128 0 10.01 0M256 160a96 96 0 10.01 0"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon theme-icon-dark"><path d="M27 412a256 256 0 10154-407a11.5 11.5 0 00-5 20a201.5 201.5 0 01-134 374a11.5 11.5 0 00-15 13"/></svg></a>
+                        </li>
+                    
+                
+            
+        
+    </ul>
+</nav>
+
+                    
+                </div>
+            </div>
+            
+    <input type="checkbox" id="nav-toggle" aria-hidden="true" />
+    <label for="nav-toggle" class="nav-toggle"></label>
+    <label for="nav-toggle" class="nav-curtain"></label>
+
+
+        
+    </header>
+
+
+
+
+            
+            
+    <main class="main single" id="main">
+    <div class="main-inner">
+
+        
+
+        <article class="content post h-entry" data-small-caps="true" data-align="default" data-type="posts" data-toc-num="true">
+
+            <h1 class="post-title p-name">Deciding what Data to Collect</h1>
+
+            
+
+            
+                
+            
+
+            
+
+            <div class="post-body e-content">
+                <p>In my <a href="http://localhost:1313/posts/businesses-stakeholders-define-why-data-should-be-collected/" target="_blank" rel="noopener"><strong>previous post</strong></a>, we looked at how stakeholders and organizational structures influence decisions about what data is collected and exposed for use.  If you haven&rsquo;t seen machine data before, that post might have felt a little abstract and some things might have felt contradictory (e.g. how does one look at the events before a failure without any sensor data?).  For people who prefer concrete details and real examples, this post is for you.</p>
+<p>When I was involved in my first predictive maintenance project, I had a fairly naive view of machines and the business of deriving value from machine data.  In my mind there was a machine that generated a lot of data and you analyzed that data.  I didn&rsquo;t really recognize or think about topics like</p>
+<ul>
+<li>What&rsquo;s the bare minimum data actually needed to run this machine?</li>
+<li>What data is not needed, strictly speaking, to run the machine, but is necessary for better diagnostics?
+<ul>
+<li>What additional data is required for predictive maintenance?</li>
+</ul>
+</li>
+<li>What is the cost and effort required to get more data from the machine?</li>
+<li>Does the cost of a predictive model even make sense?  Will the model cost more to build and operate than it saves the company?</li>
+</ul>
+<p>A good starting place is to understand how a machine works and what data can be expected from it.  If we start from the basics, we can gradually build an understanding of how people define the requirements for what data should be collected, and how those requirements change as needs become more complex.  This then connects to the previous post, where we see how different stakeholders influence this process.</p>
+<h1 id="a-basic-machine-and-the-data-it-generates"><a href="#a-basic-machine-and-the-data-it-generates" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a>A Basic Machine and the Data it Generates</h1>
+<h2 id="the-data-needed-to-run-a-basic-machine"><a href="#the-data-needed-to-run-a-basic-machine" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a>The Data Needed to Run a Basic Machine</h2>
+<p>To explore what data is needed to run a basic machine, let&rsquo;s start with a very simple machine that cleans dirty beakers.  The <strong>Clean Beakers</strong> machine is basically just a conveyor belt that holds beakers and move them under some cleaning nozzles that spray cleaning fluids.  Let&rsquo;s imagine this machine operates in factory that mixes chemicals in glass beakers, and the beakers are reused.  The overall process of the factory can be seen in the diagram below.</p>
+<div class="mermaid">
+flowchart TB
+LB[Load Beakers] --> CB[Clean  Beakers] -->
+MC[Mix Chemical in Beaker] -->
+EB[Pour Chemical Out of Beakers] --> LB
+style CB fill:#e69138
+</div>
+<p>A person starts this process by loading beakers onto the conveyor belt.  The beakers are first cleaned, and then moved to another machine that mixes some chemicals in these beakers.  The mixed chemical is poured out, and then a person carries these dirty beakers back to the starting point.  This process could also be automated. So instead of people, a big conveyor belt moves the beakers between the four stations (each box in the diagram is a station) in this loop.</p>
+<p>Now that we understand how this beaker cleaning machine operates in the larger factory process, let&rsquo;s look at how the beakers are actually cleaned.</p>
+<div class="mermaid">
+flowchart TD
+	BP[Beaker Arrives] --> BS[Beaker Washed With Soap] --> BW[Beaker Washed With Water] --> BC[Beaker Clean]
+</div>
+<p>An upside down beaker (the mouth of the beaker is facing the floor) enters the machine on the conveyor belt.  The conveyor belt takes the beaker and moves it over the soap nozzle.  Once the soap is sprayed, the conveyor moves the beaker over the water nozzle and water is sprayed to rinse out the soap.  The beaker is now clean and is moved on to the next machine where the beaker is flipped over and the chemicals are mixed.</p>
+<p>When this machine was being built and the requirements for what it should do were gathered, the engineering team(s) made decisions about what data this machine needed to run, and what data would be exposed to the outside world.  Typically, the more basic the machine, the more basic the data requirements might be.</p>
+<p>In the most minimal sense, what information or data would be needed for this cleaning machine to function?  Let&rsquo;s first define the way the machine works.</p>
+<ul>
+<li>The machine consists of a loading area, a single soaping area, and a single water rinse area.</li>
+<li>There is a simple weight switch to detect if a beaker is present.  No weight means no beaker is present, and some weight means a beaker is there.  The switch doesn&rsquo;t actually measure the actual weight, it&rsquo;s just an on/off or yes beaker/no beaker.</li>
+<li>Below the soap and wash areas, there is a nozzle.  Each nozzle is connected to a valve that controls the water or soap being sprayed.  The valve is either on or off, there is no in-between settings.</li>
+<li>There are a total of 3 switches.  One switch where the beaker is loaded on the conveyor belt to detect when something is placed on the belt. One to detect when a beaker is above the soap nozzle. One to detect a beaker for the water nozzle.</li>
+<li>A simple motor moves the conveyor belt one step (e.g. from above the water nozzle to above the soap nozzle) at a time.  Each step is of equal length.</li>
+<li>A very basic industrial computer (e.g. a PLC) that controls the machine based on inputs from the switches.  The computer also controls the valves and the motor.</li>
+</ul>
+<p>Based on that, this is the logic of how the machine functions and how the computer controls it.  The square boxes are actions performed by the machine/computer.  The ovals and floating text just provide more information on what is going on or the decision.</p>
+<div class="mermaid">
+flowchart TB
+    BP([Person Places Beaker On Conveyor]) -->
+	LAS[Check Switch in Loading Area] 
+	SS[Check Soap Nozzle Switch]
+	SN[Spray Soap]
+	WS[Check Wash Nozzle Switch]
+	WN[Spray Water]
+	LAS --> |No Beaker| DN[Do Nothing]
+	LAS --> |Beaker Present| MC[Move Conveyor One Step]
+	MC --> SS 
+	SS --> |No Beaker| DN2[Do Nothing]
+	SS --> |Beaker Present| SN --> MC2[Move Conveyor One Step]
+	MC2 --> WS
+	WS --> |No Beaker| DN3[Do Nothing]
+	WS --> |Beaker Present| WN --> MC3[Move Conveyor One Step]
+	MC3 --> BCF([Beaker Cleaning Finished]) --> |Repeat Process| BP
+</div>
+<p>Another way to read this chart is to see what signals the computer receives and the decision made based on that signal.  For example, let&rsquo;s think about the &ldquo;Check Switch in Loading Area&rdquo; box.  If somebody places a beaker there, the switch gets triggered and the &ldquo;on&rdquo; signal is sent to the computer.  The computer then sends a signal to the conveyor motor to move it.  Instead, if that switch was &ldquo;off&rdquo; because no beaker was there, the computer would do nothing.  So the data sent to and from the computer only consists of different on and off signals.</p>
+<p>If we were to record every event this machine does in order of what is done, it would look like this. This type of data is called <strong>Event</strong> data and is typically stored in an <strong>Event Log</strong>.</p>
+<div class="table-container"><table>
+<thead>
+<tr>
+<th>Event</th>
+<th>Time (hour:minute.second AM/PM)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Switch On: Beaker Placed on Machine</td>
+<td>1:00.00 PM</td>
+</tr>
+<tr>
+<td>Conveyor Moved</td>
+<td>1:00.30 PM</td>
+</tr>
+<tr>
+<td>Switch On: Beaker Over Soap Nozzle</td>
+<td>1:01.00 PM</td>
+</tr>
+<tr>
+<td>Soap Nozzle Activated</td>
+<td>1:01.30 PM</td>
+</tr>
+<tr>
+<td>Conveyor Moved</td>
+<td>1:02.30 PM</td>
+</tr>
+<tr>
+<td>Switch On: Beaker Over Water Nozzle</td>
+<td>1:03.00 PM</td>
+</tr>
+<tr>
+<td>Water Nozzle Activated</td>
+<td>1:03.30 PM</td>
+</tr>
+<tr>
+<td>Conveyor Moved</td>
+<td>1:04.30 PM</td>
+</tr>
+</tbody>
+</table></div>
+<p>The steps above would be repeated over and over in the Event Log.</p>
+<p>The computer might have some additional logic to make sure a switch is turned off after it&rsquo;s been turned on and other logic to handle possible errors.  But this is the basic logic required for this machine to run, and you can see the data we would get.</p>
+<p>Keep in mind that this data might not be available to anybody to take off the machine.  The data you see above could be limited to the computer and no programming or storage was put into place for anybody to actually access this data.  So you shouldn&rsquo;t assume that if you plug your laptop into the machine computer that you&rsquo;d be able to see this data.  Somebody has to write the software code to expose this data to the outside world.  But for the sake of making this easier, let&rsquo;s assume this machine stores this data somewhere and people can access it.</p>
+<h1 id="diagnosing-an-issue-using-data"><a href="#diagnosing-an-issue-using-data" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a>Diagnosing an Issue Using Data</h1>
+<p>Now that we&rsquo;ve described this basic machine, let&rsquo;s move to the scenario of diagnosing an issue using data. One day somebody notices the beakers are not being cleaned properly.  Let&rsquo;s also say that due to the physical design of the machine, it&rsquo;s hard to just look into it to see why the cleaning is not being done properly.  So nobody can just watch it running and see the issue.</p>
+<p>If somebody pulls 10 days of log data (described in the previous section) to investigate, all of it is going to look exactly the same.  There&rsquo;s no clear indicator of the machine running differently, when the issue started, or what the cause is.  The log data tells us the machine is running and we can calculate things like uptime/downtime and utilization (how much this machine is used in a day), but we have very little information about what&rsquo;s really happening during the various processes the machine performs.</p>
+<p>If you&rsquo;re only looking at the data, you&rsquo;re not going to be able to diagnose the issue, and you&rsquo;re certainly not going to be able to develop a predictive rule or model about when the machine is going to stop cleaning properly.  Despite the fact that the machine is running and providing data, the data isn&rsquo;t very useful.</p>
+<p>If we wanted to diagnose the cause of the cleaning issue based purely on data, we could identify possible failure modes and the data needed to detect those.  Here are some examples.</p>
+<div class="table-container"><table>
+<thead>
+<tr>
+<th>Fault Mode</th>
+<th>Data Required to Diagnose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nozzle Not Fully Opening</td>
+<td>We need a way to track exactly how much the water and soap nozzle(s) opens</td>
+</tr>
+<tr>
+<td>Water/Soap Pressure Issue</td>
+<td>We can track the water pressure in the pipes that go to the nozzles, maybe at different locations along the pipes</td>
+</tr>
+<tr>
+<td>Conveyor Movement Issues</td>
+<td>Tracking how much the conveyor actually moves at each step might identify if the beaker is not placed at the right position over the nozzle</td>
+</tr>
+</tbody>
+</table></div>
+<p>If we were also collecting this data, maybe we&rsquo;d see that the water pressure exiting the nozzle has gone down over time.  If we have multiple pressure readings along the pipes, maybe we could further diagnose it as a supply issue (not enough water is getting to the machine), a blockage issue (the water supply is fine, but one of the pipes in the machine is getting clogged) or a nozzle pressure issue (the nozzle is not spraying at enough pressure).  Based on this, we could build a simple model that Alerts on when the water pressure is trending downwards and is predicted to be too low (to clean the beaker effectively) in the future.</p>
+<p>This type of data is also known as <strong>Sensor</strong> data.  In contrast to Event data, sensor data gives you information about what was going on during a process, not just after it.  Event Data typically tells you about events after the event has already started or occurred, but has limited information about the conditions during the actual process that is occurring during that event.  It&rsquo;s the combination of Event and Sensor data that tells you when a process starts (a Start Event), what is going on during the process (the Sensor Data), and when a process ends (an End Event).</p>
+<h1 id="how-do-people-decide-what-data-needs-to-be-collected"><a href="#how-do-people-decide-what-data-needs-to-be-collected" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a>How do people decide what data needs to be collected?</h1>
+<p>Imagine when this beaker cleaning machine was designed, the original requirement was to build something priced to sell to small, low-volume factories with limited money.  Engineering and Product management decided the way to reduce costs would be to build the minimal product described above.</p>
+<p>Over time, the machine became more popular and higher volume customers started buying it.  They also started complaining about it being difficult to service because it was difficult to diagnose issues.  These customers also started to make warranty claims out of frustration, stating the machine was malfunctioning due to product defects.  And since diagnosis was difficult, it was not clear if this was a genuine warranty claim, a maintenance issue, or people not operating the machine properly.</p>
+<p>To fix this situation, the service organization proposed a solution. They would create a subscription service plan and fix any machine issues as part of the subscription cost.  To do that, they would need the machine to collect the data described in the previous section.  They also proposed a &ldquo;subscription plus&rdquo; plan which offered remote diagnosis of the problem.  That way the problem would be identified quickly before anybody even went onsite, and the service technician would already have the parts needed (along with a repair plan) to fix the machine as quickly and efficiently as possible.  To implement the remote diagnostic capability, the machine control computer needed to be upgraded (read: more expensive), the software needed to be updated to expose the data, and a software tool needed to be implemented to transmit data to the remote service center.</p>
+<p>From a business standpoint, there are a few considerations with this subscription plan idea.</p>
+<ul>
+<li>The Service Org needs to provide a business plan demonstrating this subscription service is profitable, and it&rsquo;s worth the time, effort, and money for Engineering to update the machine</li>
+<li>Product Management needs to understand if customers are willing to pay for this updated machine and associated service plan.  Are there enough potential customers?</li>
+<li>Engineering needs to look at their priorities and decide if it makes sense to make these updates to the machine, or to have 2 versions of this machine.  One basic version, and one with the extra data capabilities.  And based on that, can they can support both machines?</li>
+<li>The Data Infrastructure org also needs to be made aware that this service is coming and they will need to build a pipeline to ingest the machine data, process it, and expose it in a usable way (e.g. Dashboards) to the personnel in the Service Org.  The specifications of the pipeline might influence what data is sent from the machine since the Data Engineers might need something specific that&rsquo;s not in the existing machine data requirements.  And whatever this costs to do, it needs to be included in calculations for the service plan.</li>
+<li>The Marketing and Sales Orgs will probably need to be involved as well since they can help provide insight into the customer demand for these features.  Assuming the product updates are made, these orgs will definitely need support with their go to market strategy to market and sell it.</li>
+</ul>
+<h1 id="moving-to-predictive-analytics"><a href="#moving-to-predictive-analytics" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a>Moving to Predictive Analytics</h1>
+<p>Two years have gone by.  Product management and Engineering decided on two machines, and the second one not only included the extra data capabilities, but it could clean more bottles per hour.  This brought in a lot of new customers who were willing to pay for the plus plan that includes remote diagnosis.  Customers really like the new service, and the subscription plan is profitable as well.</p>
+<p>However, there are two growing concerns.  The first is that the service department only knows about a machine issue when a customer calls and creates a ticket.  Basically, the service is 100% reactive and customers are already experiencing an issue by the time they call.  Customers are increasingly asking for automatic and proactive identification of machine issues before it affects them.</p>
+<p>The second is that the remote diagnosis is completely manual.  After a customer calls, somebody with diagnostic training opens dashboards, identifies the issue, and then provides a recommend plan to fix it.  Since the diagnostic process is manual, the number of technicians has grown in proportion to the number of customers.  However, from a budget perspective, this isn&rsquo;t scalable because the number of diagnosticians required is cutting into the profit from the subscription revenue.</p>
+<p>To address these two problems, the Data org is asked to come in and evaluate the feasibility of  automated detection of machine malfunctions before the if effects the customer, sending out a notification Alarm based on this, and including a recommended fix plan with every Alarm.  The Data team spends some time evaluating this and provides the following recommendations</p>
+<ul>
+<li>Currently, the data from each machine is a daily summary of the sensor values.  For example, daily maximum water pressure, daily minimum water pressure, and daily average water pressure.  Since it is a daily summary, it is only sent once a day.  The Data team feels that for good predictive service, they prefer the raw un-aggregated sensor data in an ideal case, but hourly summaries would be sufficient.  It would also need to be sent 6 times a day.</li>
+<li>They need a budget for the infrastructure to develop and deploy these models
+<ul>
+<li>The infrastructure will need to integrate with the other systems, such as the Service system that manages customer tickets.</li>
+</ul>
+</li>
+<li>They need a dedicated team of at least one Data Engineer and one Data Scientist to be able to support building the models, but also to support any tickets about the data quality, models, and Alarms.</li>
+</ul>
+<p>All of the above will eat into the revenue pie of the subscription services, so it&rsquo;s important to estimate how much automating these things will save the company compared to just hiring more people to perform the remote diagnoses.  In other words, how much cost reduction is realistic if the Data org is able to successfully implement their ideas?  How accurate do the Alarms and recommendations have to be to actually realize these cost savings and for it to be considered a success?</p>
+<h1 id="the-motivations-for-data-collection"><a href="#the-motivations-for-data-collection" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a>The Motivations for Data Collection</h1>
+<p>At this point we can stop building out this story.  There are many different directions this could go, all of which would further illustrate the original goal of this post and the previous one; that data is not collected and provided just because that&rsquo;s what one does.  Collecting data takes time, effort, and money, and there needs to be a useful reason to why it&rsquo;s done.</p>
+<p>Stakeholders can be very differently oriented in how they think about the value of data and where investments should be made.  Engineering is focused on what data is needed to ensure the machine runs.  Service wants data that allows them to service the machines as cheaply and quickly as possible while balancing driving down service costs with keeping customers happy.</p>
+<p>In the predictive analytics section of this story story, the Data team is really an extension of Service. If the Data team said they wanted higher frequency data just because they want more data, Engineering would completely deprioritize the request.  However, since this is really a request to reduce costs and improve what the Service org provides to the customer, the Engineering group might be pushed to prioritize it.</p>
+<p>Sometimes these relationships are adversarial.  The Engineering org could disagree with the way the Service org wants to do this and they feel the machines can have the predictive algorithms running on the machine computer.  That way there&rsquo;s no need for the Data org to get involved at all, and the Service department doesn&rsquo;t need to own it.  If the code is running on the machine, the slice of the subscription revenue allocated to the predictive service feature will go to Engineering and not the Service Org.</p>
+<p>If we think back to the previous post where we talked about all of these functions being in the same company versus multiple companies, each one has it&rsquo;s positives and negatives.  For example, if the company that built this machine was purely a machine builder, they might say they don&rsquo;t want to get into the servicing business.  The most they&rsquo;ll do is some minimal work to make it easier for service providers to add data export and transmission capabilities to the machine.  When the machine builder and service are different companies, there&rsquo;s a clearer delineation on where each should focus.  If the Engineering and Service org are in the same company, there might be more push from upper management for the groups to work together, since any cost reduction will benefit the company as a whole.  At the same time, this might result in a worse quality predictive service product because both of them have no choice but to work together and neither wants to hold the other accountable for issues and risk harming existing relationships.</p>
+<h1 id="the-evolution-of-industrial-machines-and-technology"><a href="#the-evolution-of-industrial-machines-and-technology" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a>The Evolution of Industrial Machines and Technology</h1>
+<p>In the example in this post, the machine is very simple and only needs a very basic computer running a relatively simple set of instructions to control the machine.  Even if the machine was collecting the hypothetical sensor data, it would still only be a few sensors and an easily manageable set of data.</p>
+<p>In contrast, there are machines so complex they have hundreds or thousands of sensors, multiple computers, and lots of additional microprocessors to control everything.  The software running on these machines is also just as complex, and is basically a product in itself. Examples of these complex machines include the lab equipment used to analyze human blood samples and machines used to manufacture microchips.</p>
+<p>When you hear about or see these types of machines, it&rsquo;s hard to wrap your head around how it was designed and built.  One question I always ask myself is how did people even start or plan it out?  Imagine if somebody asked you to build a car.  Where would you even start?  How do you build something so complex from scratch?</p>
+<p>The answer is, you don&rsquo;t build it from scratch.  The complex machines are based on the lessons learned from less complex machines, which are based on lessons learned from machines that were less complex than those ones.  Over time, people make mistakes and learn how to make things better.  They also learn what is needed in the real-world and they evolve their products.  Lots of new machines have hardware and software in them that was made and used in an older machines.</p>
+<p>As an example of this, let&rsquo;s look at the computer that controls these machines.  At first, the control systems were basically all hard-wired and it was very difficult to change the logic.  Then came the <a href="https://en.wikipedia.org/wiki/Programmable_logic_controller" target="_blank" rel="noopener">PLC</a> which gave people much more flexibility than hard-wiring the logic to control the machine.  Modern PLCs are basically regular computers (with lots of cores) that have all the software and hardware (e.g. connectivity) to operate in an industrial environment.  They can also be extended to run docker (e.g. python in a container), a messaging bus, a relational database, you can attach an NPU (for Deep Learning Inference), and do lots of other things.</p>
+<p>With this machine evolution comes an evolution in what data is collected as well.  As machines are designed and used by customers, people realize what additional data needs to be collected in the next version of the software or machine.  Over time, as sensors become smaller/cheaper, and programmable microcontrollers become more flexible and powerful, having more data becomes essential to these more complex machines operating properly.  Then the discussion changes from &ldquo;why collect data&rdquo; to &ldquo;what&rsquo;s the right data to collect?&rdquo;  Here are two examples of this.</p>
+<ul>
+<li>A complex machine already had lots of different event and sensor data being used to control the machine, but due to the high data volume, most of it was not stored and thus never exported.  In fact, the software and database on the machine weren&rsquo;t really designed to store and export all that data outside of some temporary debugging modes.  To enable any additional data export would require a major software update that didn&rsquo;t cause issues with any existing data exports.  So for any additional data exports, there had to be good rationale for what data was really needed to address any use cases.</li>
+<li>A factory was collecting data from multiple machines that were all part of the manufacture of a single thing.  A 6 month sample of this data (thousands of sensors) was multiple terabytes compressed.  There was a very expensive issue that was occurring, and they were trying to better understand the circumstances under which this issue occurred, <strong>not</strong> build an accurate model to predict the issue.  After an extended timespan where multiple internal and external teams of specialized Engineers and Data Scientists looked at this, the conclusion was that despite collecting so much data, they were not collecting the right data.</li>
+</ul>
+<p>Note that data limitations do not arise only from machine data.  Certain use cases require the alignment of machine and non-machine data and this is not always feasible.  One widget manufacturer was facing the problem that some widgets would crack during the final stages of the manufacturing process, and there was a theory that it was a combination of manufacturing process and some supplier quality issue.  There was some issue with the raw material that resulted in a reaction to some condition in the manufacturing process.  All raw material did undergo a quality review when it was delivered, but nothing stood out.  In this particular factory, each widget was created individually, but in later stages many widgets were batched together (e.g. heating lots of widgets together in an oven).  So there was no way to match or align the sensor or quality data with the individual widgets and match the data to the widgets that cracked.</p>
+<p>With what I&rsquo;ve just said, I don&rsquo;t mean to imply that machines and data collection have reached this point where every machine is generating a lot of data and the challenges are now around data alignment/cleaning and figuring out which is the right data to collect.  Many machines collect minimal data that is useful only for some basic KPIs.  It also takes time for Industrial customers to upgrade and update their machines.  If a factory was built in 1993, it&rsquo;s almost a given that many of the original machines are still operating 20+ years later.  And those machines were were probably designed based on technology older than 1993!  Unless there was good reason to upgrade,  the computer controlling those machines would still be that old.  That&rsquo;s assuming the computer controlling the machine isn&rsquo;t a human!</p>
+<h1 id="wrap-up"><a href="#wrap-up" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a>Wrap Up</h1>
+<p>I hope this post gives some concreteness to the idea of a machine and what data it generates.  I realize the topic will still feel a bit vague since I&rsquo;ve given general examples of machine data, but there&rsquo;s no spreadsheet here with data extracts from machine and non-machine data.  My intent was to add clarity to the idea that data isn&rsquo;t collected for the sake of being collected, and that there are conscious decisions made about what data is collected an exposed.  Also, the calculus around these decisions changes as technology improves, and the justification needed to make a decision today might be different than what was needed a decade ago.</p>
+            </div>
+
+            
+
+
+        </article>
+
+        
+
+        
+
+
+        
+
+
+        
+
+
+        
+    
+    
+
+
+
+        
+    
+
+
+
+        
+
+
+        
+
+
+        
+    
+        
+        
+    
+    
+    
+    
+        <ul class="post-nav">
+            
+                <li class="post-nav-prev">
+                    <a href="/posts/is-your-predictive-maintenance-data-science-program-worth-it/" rel="prev">&lt; Is Your Predictive Maintenance Data Science Program Worth it?</a>
+                </li>
+            
+            
+                <li class="post-nav-next">
+                    <a href="/posts/businesses-stakeholders-define-why-data-should-be-collected/" rel="next">Businesses Stakeholders are the ones who Define why Data Should be Collected &gt;</a>
+                </li>
+            
+        </ul>
+    
+
+
+
+        
+
+
+    </div>
+</main>
+
+
+            
+    <div id="back-to-top" class="back-to-top">
+        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon arrow-up"><path d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"/></svg></a>
+    </div>
+
+
+            
+    <footer id="footer" class="footer">
+        <div class="footer-inner">
+            <div class="site-info">©&nbsp;2023–2024&nbsp;Ujval Kamath</div><div class="site-copyright"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></div>
+
+            
+    
+        <ul class="socials"><li class="socials-item">
+                    <a href="/rss.xml" target="_blank" rel="external noopener" title="RSS"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon social-icon"><path d="M19.199 24C19.199 13.467 10.533 4.8 0 4.8V0c13.165 0 24 10.835 24 24h-4.801zM3.291 17.415c1.814 0 3.293 1.479 3.293 3.295 0 1.813-1.485 3.29-3.301 3.29C1.47 24 0 22.526 0 20.71s1.475-3.294 3.291-3.295zM15.909 24h-4.665c0-6.169-5.075-11.245-11.244-11.245V8.09c8.727 0 15.909 7.184 15.909 15.91z"/></svg></a>
+                </li><li class="socials-item">
+                    <a href="https://github.com/ujkam" target="_blank" rel="external noopener" title="GitHub"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon social-icon"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+                </li><li class="socials-item">
+                    <a href="https://www.linkedin.com/in/ukamath-anc/" target="_blank" rel="external noopener" title="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon social-icon"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
+                </li></ul>
+    
+
+
+
+            
+        </div>
+    </footer>
+
+
+        </div>
+        
+
+        
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.7.0/dist/mermaid.min.js"></script>
+<script>
+    const mermaidConfig = {
+        startOnLoad: true,
+        flowchart: {
+            useMaxWidth: true,
+            htmlLabels: true
+        },
+        theme: 'default'
+    };
+    mermaid.initialize(mermaidConfig);
+</script>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/medium-zoom@latest/dist/medium-zoom.min.js"></script>
+
+<script>
+    let imgNodes = document.querySelectorAll('div.post-body img');
+    imgNodes = Array.from(imgNodes).filter(node => node.parentNode.tagName !== "A");
+
+    mediumZoom(imgNodes, {
+        background: 'hsla(var(--color-bg-h), var(--color-bg-s), var(--color-bg-l), 0.95)'
+    })
+</script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/instant.page@5.1.0/instantpage.min.js" type="module" defer></script>
+
+
+
+
+
+
+    </body>
+</html>

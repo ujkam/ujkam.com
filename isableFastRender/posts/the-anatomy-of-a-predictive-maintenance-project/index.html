@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8" />
+
+    <meta name="generator" content="Hugo 0.126.1"><meta name="theme-color" content="#fff" />
+    <meta name="color-scheme" content="light dark">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+    
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <title>The Anatomy of a Predictive Maintenance Project | Ujval&#39;s Blog</title>
+
+    <link rel="stylesheet" href="/css/meme.min.b91371652fd1f74ae16e0459f4ae3a732ac056582b31a579b9cdc752e780cbc8.css"/>
+
+    
+    
+        
+            <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" defer></script><script src="/js/meme.min.22dd5f9217dd6500aff8bc2a93128785fb7999092297ce00efd3046f2f5099c4.js"></script>
+
+        
+    
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM&#43;Plex&#43;Serif:ital,wght@0,400;0,500;0,700;1,400;1,700&amp;family=Source&#43;Code&#43;Pro:ital,wght@0,400;0,700;1,400;1,700&amp;family=Comfortaa:wght@700&amp;display=swap" media="print" onload="this.media='all'" />
+        <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM&#43;Plex&#43;Serif:ital,wght@0,400;0,500;0,700;1,400;1,700&amp;family=Source&#43;Code&#43;Pro:ital,wght@0,400;0,700;1,400;1,700&amp;family=Comfortaa:wght@700&amp;display=swap" /></noscript>
+
+    <meta name="author" content="Ujval Kamath" /><meta name="description" content="When conceptualizing and implementing a predictive maintenance project, it can be hard to grasp the entire chain of people and technology needed for success. In this post I’ll try to break down all the people and teams needed for this type of project, and also provide insight into how these people work together.
+" />
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#2a6df4" /> 
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Ujval&#39;s Blog" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="Ujval&#39;s Blog" />
+    <meta name="msapplication-starturl" content="../../" />
+    <meta name="msapplication-TileColor" content="#fff" />
+    <meta name="msapplication-TileImage" content="../../icons/mstile-150x150.png" />
+    <link rel="manifest" href="/manifest.json" />
+
+    
+    
+
+    
+        <link rel="canonical" href="http://localhost:1313/posts/the-anatomy-of-a-predictive-maintenance-project/" />
+    
+
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "datePublished": "2024-04-15T00:00:00-04:00",
+        "dateModified": "2024-04-25T19:29:53-04:00",
+        "url": "http://localhost:1313/posts/the-anatomy-of-a-predictive-maintenance-project/",
+        "headline": "The Anatomy of a Predictive Maintenance Project",
+        "description": "When conceptualizing and implementing a predictive maintenance project, it can be hard to grasp the entire chain of people and technology needed for success. In this post I’ll try to break down all the people and teams needed for this type of project, and also provide insight into how these people work together.\n",
+        "inLanguage" : "en",
+        "articleSection": "posts",
+        "wordCount":  5435 ,
+        "author": {
+            "@type": "Person",
+            "url": "http://localhost:1313/",
+            "name": "Ujval Kamath"
+        },
+        "license": "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Ujval's Blog",
+            "url": "http://localhost:1313/"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebSite",
+            "@id": "http://localhost:1313/"
+        }
+    }
+</script>
+
+    
+
+<meta name="twitter:card" content="summary" />
+
+
+    
+
+
+
+<meta property="og:title" content="The Anatomy of a Predictive Maintenance Project" />
+<meta property="og:description" content="When conceptualizing and implementing a predictive maintenance project, it can be hard to grasp the entire chain of people and technology needed for success. In this post I’ll try to break down all the people and teams needed for this type of project, and also provide insight into how these people work together.
+" />
+<meta property="og:url" content="http://localhost:1313/posts/the-anatomy-of-a-predictive-maintenance-project/" />
+<meta property="og:site_name" content="Ujval&#39;s Blog" />
+<meta property="og:locale" content="en" /><meta property="og:type" content="article" />
+    <meta property="article:published_time" content="2024-04-15T00:00:00-04:00" />
+    <meta property="article:modified_time" content="2024-04-25T19:29:53-04:00" />
+    
+    <meta property="article:section" content="posts" />
+
+
+
+    
+    
+
+    
+</head>
+
+    <body>
+        <div class="container">
+            
+    <header class="header">
+        
+            <div class="header-wrapper">
+                <div class="header-inner single">
+                    
+    <div class="site-brand">
+        
+            <a href="/" class="brand">Ujval&#39;s Blog</a>
+        
+    </div>
+
+                    <nav class="nav">
+    <ul class="menu" id="menu">
+        
+            
+        
+        
+        
+        
+            
+                <li class="menu-item"><a href="/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="icon home"><path d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"/></svg><span class="menu-item-name">Home</span></a>
+                </li>
+            
+        
+            
+                <li class="menu-item active"><a href="/posts/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon archive"><path d="M32 448c0 17.7 14.3 32 32 32h384c17.7 0 32-14.3 32-32V160H32v288zm160-212c0-6.6 5.4-12 12-12h104c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12H204c-6.6 0-12-5.4-12-12v-8zM480 32H32C14.3 32 0 46.3 0 64v48c0 8.8 7.2 16 16 16h480c8.8 0 16-7.2 16-16V64c0-17.7-14.3-32-32-32z"/></svg><span class="menu-item-name">Posts</span></a>
+                </li>
+            
+        
+            
+                <li class="menu-item"><a href="/about/"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" class="icon user-circle"><path d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 96c48.6 0 88 39.4 88 88s-39.4 88-88 88-88-39.4-88-88 39.4-88 88-88zm0 344c-58.7 0-111.3-26.6-146.5-68.2 18.8-35.4 55.6-59.8 98.5-59.8 2.4 0 4.8.4 7.1 1.1 13 4.2 26.6 6.9 40.9 6.9 14.3 0 28-2.7 40.9-6.9 2.3-.7 4.7-1.1 7.1-1.1 42.9 0 79.7 24.4 98.5 59.8C359.3 421.4 306.7 448 248 448z"/></svg><span class="menu-item-name">About</span></a>
+                </li>
+            
+        
+            
+                
+                    
+                    
+                        <li class="menu-item">
+                            <a id="theme-switcher" href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon theme-icon-light"><path d="M193.2 104.5l48.8-97.5a18 18 0 0128 0l48.8 97.5 103.4 -34.5a18 18 0 0119.8 19.8l-34.5 103.4l97.5 48.8a18 18 0 010 28l-97.5 48.8 34.5 103.4a18 18 0 01-19.8 19.8l-103.4-34.5-48.8 97.5a18 18 0 01-28 0l-48.8-97.5l-103.4 34.5a18 18 0 01-19.8-19.8l34.5-103.4-97.5-48.8a18 18 0 010-28l97.5-48.8-34.5-103.4a18 18 0 0119.8-19.8zM256 128a128 128 0 10.01 0M256 160a96 96 0 10.01 0"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon theme-icon-dark"><path d="M27 412a256 256 0 10154-407a11.5 11.5 0 00-5 20a201.5 201.5 0 01-134 374a11.5 11.5 0 00-15 13"/></svg></a>
+                        </li>
+                    
+                
+            
+        
+    </ul>
+</nav>
+
+                    
+                </div>
+            </div>
+            
+    <input type="checkbox" id="nav-toggle" aria-hidden="true" />
+    <label for="nav-toggle" class="nav-toggle"></label>
+    <label for="nav-toggle" class="nav-curtain"></label>
+
+
+        
+    </header>
+
+
+
+
+            
+            
+    <main class="main single" id="main">
+    <div class="main-inner">
+
+        
+
+        <article class="content post h-entry" data-small-caps="true" data-align="default" data-type="posts" data-toc-num="true">
+
+            <h1 class="post-title p-name">The Anatomy of a Predictive Maintenance Project</h1>
+
+            
+
+            
+                
+            
+
+            
+
+            <div class="post-body e-content">
+                <p>When conceptualizing and implementing a predictive maintenance project, it can be hard to grasp the entire chain of people and technology needed for success.  In this post I&rsquo;ll try to break down all the people and teams needed for this type of project, and also provide insight into how these people work together.</p>
+<p>An alternate title I had for this post was &ldquo;How much is my predictive maintenance program really going to cost?&rdquo;  The goal is not give a dollar amount, but really to understand how all the different people and pieces fit together so you can fully conceptualize the scope of one of these programs.</p>
+<p>Lets start with the assumptions.  This post is focused on projects that actually make it to &ldquo;production&rdquo;, which means they generate some real financial benefit. R&amp;D work, proof-of-concepts, exploratory activities, etc. are all valuable, but they have working patterns that can vary quite a bit from what I&rsquo;m describing here.</p>
+<p>This post focuses on predictive maintenance projects addressing specific use cases, not general purpose solutions.  A general purpose solution is something like an anomaly detection SaaS trained on a variety of machine data, but it needs to be customized for each use case.  Developing and using this type of SaaS is different from what this post is addressing.  I&rsquo;ll provide an example of what I mean by &ldquo;specific use case&rdquo; soon.</p>
+<p>I&rsquo;ve also pointed at a &ldquo;Data Scientist&rdquo; as the person who implements these projects, but more realistically it could be any person with data and software skills.  Job titles mean different things at different companies and there nothing stopping a Data Analyst or Data Engineer from doing these things.  So don&rsquo;t take my using the words &ldquo;Data Scientist&rdquo; as some sort of gold standard for who needs to do this work.</p>
+<p>For the sake of simplicity, let&rsquo;s split these projects into two types, <strong>low</strong> and <strong>high</strong> complexity projects. &ldquo;Complexity&rdquo; refers to the number of people and the the computing environment used to develop and deploy a model, and also to evaluate and act on <strong>Alarms</strong> (the model inference/predictions).  Complexity is not referring to complexity of the actual model.</p>
+<p>A <strong>Low</strong> complexity project consists of a smaller group of people working on a focused use case, with a more manual process around evaluating and acting on alarms.  A <strong>high</strong> complexity project has a lot more people and technology in the development of use cases and evaluating and acting on alarms.  Again, it&rsquo;s not about the actual model, but everything around the model.</p>
+<h1 id="a-low-complexity-project"><a href="#a-low-complexity-project" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a>A Low Complexity Project</h1>
+<p>Let&rsquo;s start with an example.  A Subject Matter Expert (<strong>SME</strong>) identifies a machine issue (a failure mode) they&rsquo;d like to predict, and proposes rules that could be used to predict this.  They work with a Data Scientist to codify (e.g. using Python) and test those rules, and both of them work together to evaluate and adjust those rules to improve predictive performance.  Once they are both happy with the results, the Data Scientist deploys the &ldquo;production&rdquo; script into a system that runs it once a day.  After the script runs, it emails a list (also known as alarms) of all systems that violated those rules to the SME.  When the SME gets the email, they evaluate the alarms by investigating the machine sensor data.  For any systems with genuine issues, they manually create a service ticket for the relevant system so somebody can intervene.</p>
+<p>There are a few points I&rsquo;d like to highlight.</p>
+<ul>
+<li>The &ldquo;deployment&rdquo; system could be as simple as a laptop running the script once a day using the operating system scheduler.  Granted, with cloud services everywhere, a laptop  is less likely than the cloud equivalent (e.g. a small cloud VM).</li>
+<li>The &ldquo;production&rdquo; script basically fetches some data (from a database, from a file), does something with this data, and sends an email.  It&rsquo;s not necessarily built with software engineering or DevOps best practices, logging, or even very tolerant of failure.</li>
+<li>The impact of the script failing is low.  If the laptop turns off and the script doesn&rsquo;t run for a few days, only the SME will notice and care.  So there limited need to harden the script and the deployment environment to prevent these types of issues.</li>
+<li>The &ldquo;monitoring&rdquo; is done by the SME, and they ensure bad alarms don&rsquo;t reach the service personnel.  If the SME goes on holiday for two weeks and nobody looks at the alarms, it doesn&rsquo;t result in a organizational or contractual issue.</li>
+</ul>
+<p>The complexity of this project is low because the organizational overhead is low.  The entire process fits on a single slide, and the entire project is executed by two people.  Any support needed from other people is minor (e.g. somebody in an IT role needs to allow the script to send emails).</p>
+<h2 id="scaling-this"><a href="#scaling-this" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a>Scaling This</h2>
+<p>One major challenge is this entire process being bottlenecked by these two people.  A few sick days means alarms are no longer checked or tracked.  If either of them have other job responsibilities taking up a lot of mental space, they may not remember, or have the time, to check the alarms or if the script is still running.</p>
+<p>Once you get past a handful of use cases, it&rsquo;s difficult to sustain this low complexity model.  If nothing else, the Service organization is going to ask why SMEs are suddenly creating service tickets based on a &ldquo;predictive model&rdquo;, and will also ask for a business justification for this new way of working.  The SME&rsquo;s management structure will need to step in.  When two different parts of an organization need to work together, a process will be need to be defined.</p>
+<p>Unless your goal is to stay small, trying to scale and resolve these types of issues is what changes this from a low complexity project to a high complexity one.  To scale, you&rsquo;ll need to bring in other people and other groups and find a way for them to work together.</p>
+<h1 id="a-high-complexity-projectprogram"><a href="#a-high-complexity-projectprogram" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a>A High Complexity Project/Program</h1>
+<p>Here&rsquo;s an example reflecting a more complex situation.  A team of SMEs come up with failure modes they&rsquo;d like to predict, and each of these failure modes is given a business value to help prioritize which to work on.  A team of Data people work with them to build resilient data pipelines and rules/models.  As part of the development process, every project is tested for a fixed period of time, and the quality of alarms are summarized using predefined metrics.  Only the models passing a defined target can then be moved to a standardized and supported production system.  To move the project to production, there are requirements the code has to meet for logging, input/output, and so it is resilient to upstream/downstream issues.  Once the project is in production, the alarms go directly to another business team who monitor and act on them.  The data, SMEs, and business teams are also all involved in monitoring alarm quality over time to catch any changes in behavior.</p>
+<p>For the sake of clarity, let&rsquo;s define all the teams of people above.</p>
+<p><strong>The SME Team:</strong>  The fundamental goal of this team is to come up with ideas or use cases, and to provide support when the Data team builds solutions.  This is typically a cross-functional team and they may only do this part time (e.g. 90% of their job is something else). So from an organizational perspective, they report to different managers and have different overall goals for their jobs.  They may have mixed backgrounds and motivations and aren&rsquo;t always aligned with each other.</p>
+<p>For example, one member of this team could be from Customer Service, with a focus on issues directly affecting customers.  Another person could be from Engineering, and they are focused on hardware issues causing machine damage, even if the occurrence of these issues are low.  A third person might be very finance focused and interested in issues which cost the company the most money, regardless of customer impact.  Keep in mind a company can have multiple products, so you might have multiple SME teams competing to get their voices heard and use cases prioritized.</p>
+<p><strong>The Data Team:</strong>  This team will have three core functions. 1). Doing data things such as building data pipelines, analyzing it, building models, etc.  2). Building/Maintaining a development and production infrastructure. 3). Ensuring the outputs of the previous two items are useful to other teams.  This could include dashboards so alarms can quickly be checked and validated against other data (e.g. machine sensor data), an app to track and handle alarms, documentation, etc.</p>
+<p>Part of this is working with other teams who own the upstream systems (e.g. the raw machine data), and also the downstream systems (e.g. the service ticketing system) so all the production infrastructure can talk to these systems in an efficient and standardized way.  The infrastructure also needs to be resilient to failures, so any upstream and downstream issues do not result in the production system crashing and losing alarms, or worse, generating incorrect alarms.</p>
+<p><strong>The Service and Alarm team:</strong>  After the alarms are generated, someone has do something with them.  This could be a single specialized team, or an entire global organization with regional teams, different IT systems, and different operational procedures. The people on this team could be call center personnel, onsite technicians, service SMEs (e.g. technical experts), or managers who are looking at the business side of things.  This team defines what should be done with those alarms when they get them, and they define what they need from the other teams so they can take effective and prompt action.  The Service team also monitors the alarm quality in the short and long term to ensure they are not wasting time and money on bad alarms.</p>
+<p><strong>Governing Team:</strong>  This team is a necessary evil to ensure the teams above are aligned and all working towards the same goal.  I say necessary evil because a Governing team will slow things down in the short-term and make it harder to take fast decisions.  At the same time, a good Governing team will help ensure the project doesn&rsquo;t go in the wrong direction for eighteen months and then get shut down.  With so many cross-functional teams, it&rsquo;s almost inevitable people will focus on their own goals, even if those goals are contradictory to the overall project being successful.  This team defines standards and procedures to follow, and they enforce a quality bar ensuring everybody knows what the targets are.</p>
+<p>Unfortunately, you can also have a bad Governing team which creates misery in the short-term and failure in the longer-term.  So having a Governing team is not automatically a solution to cross-functional drama, and they can make things worse, resulting in a lot of passive-aggressive behavior and the inevitable failure of the project.</p>
+<p><strong>Hidden Teams:</strong>  There are also other teams involved in this process that aren&rsquo;t always at the forefront, but they are critical to it&rsquo;s success.  An obvious example are the people who maintain all the IT systems (e.g. Databases, ERP/Ticketing, Dashboard/BI).  They are the ones who built these systems in the first place, and they are the ones who fix issues and implement changes.  You also have Data Engineering teams, who build pipelines to ingest raw data and make is useable to other teams.  Software Vendors also hide behind all of this. A documentation team may also be needed to take what is created by these individual teams and expose it to the wider world.  And if you are selling predictive maintenance as a service, don&rsquo;t forget sales and marketing.</p>
+<h1 id="how-these-people-and-teams-work-together"><a href="#how-these-people-and-teams-work-together" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a>How These People and Teams Work Together</h1>
+<h2 id="smes-and-the-data-team"><a href="#smes-and-the-data-team" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a>SMEs and the Data Team:</h2>
+<p>Typically the people who spend the most time working together are SMEs and Data Scientists.  This is because these are the ones who conceptualize and build a solution.  At a bare minimum, SMEs have the domain knowledge to identify, support, and justify a predictive maintenance use case.  And a Data Scientist has the machine learning and software skills to figure out how to, and if it&rsquo;s possible, to build a solution they can apply to a fleet of machines.</p>
+<p>Here&rsquo;s a example of how they work together.  An SME is tasked with reducing unplanned downtime on customer machines.  They look at the historical service data and identify the top 30 issues leading to the most downtime.  They combine this with their domain (e.g. knowledge of the the machine hardware) expertise to filter this list down to issues where it makes sense to try and proactively address them, and they suspect could be predicted using a model.  Based on some further business and financial criteria, these use cases are prioritized.</p>
+<p>This prioritized set of use cases is typically where the Data Scientist starts.  They work directly with the SMEs, who provide all the knowledge about the use case, the machine, and the parts/components and how they are related to the failure to be predicted.  This can include information about the software logic controlling the machine and generating the machine data.  Working together, they also find examples in the historical data of what is supposed to predicted.  Using this information, the data person tries to build a model that can be applied to every machine in the field.  It&rsquo;s also the Data Scientist&rsquo;s responsibility to evaluate the predictive quality of their models, and validate these quality results with the SMEs.</p>
+<p><strong>In my experience, what I&rsquo;ve described in the last two paragraphs takes up the bulk of the time with any predictive maintenance project.</strong>  Unfortunately, this is also the most unpredictable from a time perspective.  I&rsquo;ve been involved in projects which went from first conversation to production in 5 weeks, then a similar use case on a different part of the machine went in circles for months.  This back-and-forth between the SMEs and Data Scientist is fundamentally applied <u>research</u>, not engineering.  Some unpredictability is expected, and I think the best way to deal with it is to set time limits.  After a predefined amount of time (e.g. three weeks), you move to a different use case or provide a very solid justification of why you need to keep working on the current one.</p>
+<h3 id="development-team-and-deployment-team"><a href="#development-team-and-deployment-team" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a>Development Team and Deployment Team</h3>
+<p>Once the SME and Data person agree they have a good model, it needs to be deployed.  There are different ways to do this.  At some companies the model development and deployment team are distinct, and the development team hands it off to the deployment team, who puts it into production.  In others, the developers take their development code and make any needed changes so it can be moved to production.</p>
+<p>However people choose to do it, there should be a defined process stating guidelines, requirements, and expectations on a software/code and business level (e.g. what needs to be provided to the documentation team, any required approvals, etc.).  Moving the code to production should take a lot less people hours than the development of the model.</p>
+<h2 id="data-team-and-the-alarmservice-team"><a href="#data-team-and-the-alarmservice-team" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a>Data Team and the Alarm/Service Team:</h2>
+<p>This relationship is actually <strong>the the most important one for the Data team&rsquo;s success.</strong>  alarms are useless unless somebody effectively acts on them.  Even if a model generates perfect alarms, the value is zero (or negative!) unless somebody does something with them.  On the other side, if the predictive quality of the alarms are mediocre, the Service team will lose faith in them and ignore them.  While it&rsquo;s easy to think the SME team is the customer because they propose the use cases and approve the models, the customer is actually the Service team because they use what has been built.  If your customer is unhappy, they won&rsquo;t act on the alarms. If that happens, the Data team has failed.</p>
+<p>The working relationship between these two teams is oriented around a defined process of what service needs to successfully act on an alarm.  For example, they might say every model/alarm needs to come with a predefined set of diagnostic and action steps a service technician needs to do.  This could also include educational training so the service personnel understands the purpose of an alarm and what to do with the predefined action steps.  It&rsquo;s then the responsibility of the Data team, SME team, and whomever else, to make sure these deliverables are created before a model goes into production.  If the Data team wants to succeed, it&rsquo;s their responsibility to ensure the process steps, deliverables, and information given to the Service team enable them to successfully act on the alarms.</p>
+<p>The technical and business processes between these two teams should be defined upfront and should be revisited every 3-6 months.  This should include a quality review of the alarms from the perspective of the Service team.  Waiting longer than 3-6 months means any flaws in this process risk becoming festering wounds.  So it&rsquo;s important to bring these issues to light quickly.</p>
+<p>When things are going well,  there should be far less interaction between the Data and Service team when compared to the Data and SME team.  The &ldquo;normal&rdquo; working interaction should be following the existing process steps as the Data team moves something to production and the Service personnel take over.  Divergences from this should typically only occur if there is an issue with the process and the teams are working together to fix it.</p>
+<h2 id="governing-team-and-everybody-else"><a href="#governing-team-and-everybody-else" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a>Governing Team and Everybody Else:</h2>
+<p>In theory, the Governing team has two broad goals.</p>
+<ul>
+<li>Defining how all these teams are going to work together.</li>
+<li>Defining guidelines and processes so the overall project can succeed.</li>
+</ul>
+<p>To perform those two points successfully, there should be success criteria, such as quality metrics for models/alarms and what quality level is acceptable for a production model.  They should also define things like the minimum requirements for the financial and business viability of use cases.  The Governing team should meet once a quarter to discuss all these topics, and have an open forum so people can voice process concerns.  This feedback should be used to fix issues to ensure projects are successful.</p>
+<p>A Governing team should also be able to recognize, or at least acknowledge, the size and importance of a problem and the time and organizational investment required to address it.  It&rsquo;s easy to see small problems as big ones due to a loud voice, or big problems as small ones because nobody understands the scope of it.  An example of this is the Governing body asking a cross-functional team to define a quality metric to decide when a model is acceptable for production.  This seems like a small task, but with different incentives, politics, and different perceptions about data quality across organizational boundaries, this seemingly small task can turn into prolonged war.  It&rsquo;s important for the Governing body to be able to step in and recognize this is an important problem they need to help solve, and not just treat it as a small ignorable side-effect of corporate politics.</p>
+<p>In my view, the Governing team should meet no more than once a month to review the current working process and to allow people to formally raise concerns.  If there is an issue requiring further work, a working group (who meets more often in the short-term) can be formed to address it.  If the Governance team is meeting very often (e.g. every week) for an extended period, your process is broken.  The whole point is for them to come up with a process for the different teams to effectively work together without constant intervention.  If the Governance team members need to meet with the other teams every week to deal with process issues, it means your process isn&rsquo;t working and the process for coming up with your governing framework isn&rsquo;t working either.  It&rsquo;s okay to have a two week recurring meeting when you first start a predictive maintenance program and you need to make sure the  framework is right.  But if you are still meeting every two weeks a year later, maybe your governance team needs their own governance team.</p>
+<h2 id="hidden-teams-and-everybody-else"><a href="#hidden-teams-and-everybody-else" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a>Hidden teams and Everybody Else:</h2>
+<p>In my experience, the interaction between the Hidden and Data teams is very task oriented.  For example, if there is an authentication issue on a cloud cluster, a ticket is filed and somebody from the Cloud team supports this.  Once that issue is resolved, the interaction on the task stops.  The duration of these interactions depends on the size of the issue.  For example, an issue requiring a longer fix is when the documentation team needs to update the action plan for every single model deployed in the last three years.  This interaction will last longer than smaller issues, but it still stops once the task is complete.  In the grand scheme of things, the interaction with these Hidden teams is a small fraction of the total interaction with the other teams.</p>
+<h1 id="pricing"><a href="#pricing" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a>Pricing</h1>
+<p>Let&rsquo;s now go back to how I started this post.  To accurately estimate how much a predictive maintenance program costs, you should take the following things into account.</p>
+<ul>
+<li>The full or fractional salaries of
+<ul>
+<li>SMEs (maybe teams of SMEs)</li>
+<li>Data People</li>
+<li>Service Team</li>
+<li>Other teams needed to support the effort</li>
+</ul>
+</li>
+<li>To calculate the fractional salaries, you&rsquo;ll need to account for time spent in
+<ul>
+<li>Meetings internal to each team</li>
+<li>Meetings between teams on short-term topics (e.g. developing a use case)</li>
+<li>Alignment meetings and Governing body meetings for longer-term topics</li>
+<li>Time spent following processes, completing templates, and other annoying things of this nature</li>
+</ul>
+</li>
+<li>Support Costs, which include
+<ul>
+<li>Fixing issues with old models</li>
+<li>Updating existing models due to data changes</li>
+<li>Updating infrastructure code to deal with upstream and downstream changes</li>
+<li>Responding to support tickets (e.g. a broken dashboard or alarm that seems weird)</li>
+</ul>
+</li>
+<li>Infrastructure Costs, which is the compute/storage and/or hardware/software costs of running all of this</li>
+</ul>
+<p>Just to be clear, when I say &ldquo;estimate the cost&rdquo;, I don&rsquo;t literally mean you sit down with a spreadsheet and insert items like &ldquo;Person X =  hourly salary * 2 hours of meetings + &hellip;&rdquo;  This is simply an order of magnitude analysis to see if all of this makes sense.  If you have a low complexity project setup, your team is two people, and your infrastructure costs are $10/month, then having a use case that saves $500k a year makes sense.  For a high complexity project, saving $1 million a year doesn&rsquo;t make sense.  When you have a program with lots of teams and people, even saving $5 million a year might not be worth it.</p>
+<h1 id="bad-success-criteria-will-kill-your-program"><a href="#bad-success-criteria-will-kill-your-program" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a>Bad Success Criteria will Kill Your Program</h1>
+<p>For any predictive maintenance projects to succeed, there needs to be a well defined success criteria so everybody understands the goal.  If your success criteria is not clear or is something vague and long term (e.g. the total target cost savings over two years is X million dollars), individual teams are going to interpret this in a way favoring their own metrics, and a lot time is going to be wasted in constant realignment.</p>
+<p>A concrete success criteria will be based on the actual service and alarm data.  This will enable you to properly estimate your costs and cost savings for each alarm.  It should have points like this.
+<strong>Before Developing  a Model</strong></p>
+<ul>
+<li>To be approved for development, each use case needs to clearly show at least $75k in savings
+<ul>
+<li>This needs to be shown from a time and materials perspective</li>
+</ul>
+</li>
+<li>What is the dollar value of a good alarm (true positive).  In other words, when the model correctly predicts an future issue, what is the cost savings of proactively addressing the issue?</li>
+<li>What is the dollar value of a bad alarm (false positive).  In other words, when the model predicted an issue would occur but it did not, what would it cost us (e.g. the Service team) to perform an unnecessary service?</li>
+<li>What estimated threshold of good to bad alarms is acceptable?  For example, if the only way for a use case to financially work is to have 97% good alarms and only 3% bad alarms, I can almost guarantee you will not hit it.  Service data tends to be messy, and it&rsquo;s extremely difficult to reach that without extremely clean or manipulated data.</li>
+<li><strong>Do all the teams agree these estimates are accurate?</strong>
+<strong>After Developing a Model (Proposing it for Production)</strong></li>
+<li>Back testing over six months of historical data, add up the cost savings from the good alarms and the costs from the bad alarms.  Are you seeing the expected savings?</li>
+<li><strong>Do all the teams agree these estimates are accurate?</strong></li>
+</ul>
+<p>Notice I&rsquo;ve included <strong>&ldquo;Do all the teams agree these estimates are accurate?&rdquo;</strong> both before and after the model is developed.  This is because different teams can have wildly different interpretations of value, even when they are looking at the same data.  I&rsquo;ve seen cases where a Service team has looked at a use case with a seemingly good cost savings and said &ldquo;Due to the time required to fix this, we don&rsquo;t have the personnel to proactively fix this issue.  We will only fix this during quarterly maintenance when we take the machine apart anyway.&rdquo;  Insights like this can completely change the value of a use case.  It&rsquo;s important for the teams to actually agree on the value before anything is built.</p>
+<p>A bad governance structure can be a big hinderance in this step.  In my experience, Governance team members tend to be managers or people with managerial like roles.  This means their jobs force them to focus on KPIs and direction, and less about details of those KPIs.  They then delegate the details (e.g. how do we estimate the value of a use case) to sub-teams, and inter-team politics takes over.  It&rsquo;s really important for the Governance team to ensure all teams come up with a measurable success criteria everybody agrees to, and they step in when that criteria needs to be updated.</p>
+<p>I also think it&rsquo;s really important for an honest data person to be part of defining the success criteria.  A data person is the only one who can give you an accurate picture of what can truly be achieved based on what they are really seeing in your data.  If you don&rsquo;t have this type of data person, two or three pilot projects might have to be done so somebody can get the experience needed to provide an informed opinion on the success criteria.</p>
+<p>Doing pilot projects to establish a baseline success criteria might not be appealing from a time and costs perspective, but it will lead to more successful projects in the future, better morale (nobody is motivated to work on projects with bad success criteria), and less wasted time in &ldquo;alignment.&rdquo;</p>
+<h1 id="how-does-all-of-this-apply-to-a-low-complexity-project"><a href="#how-does-all-of-this-apply-to-a-low-complexity-project" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a>How Does all of this Apply to a Low Complexity Project?</h1>
+<p>Since a low complexity project has far fewer people overall and maybe only a single small cross-functional team, a lot of what is stated above isn&rsquo;t relevant.  What is important is the success criteria.  Even if a project only has two people, it&rsquo;s important for them to agree on a target. This is the only way for both of them to know what they are striving for.  If, after meeting four times, the success criteria is &ldquo;Well we could build a model to detect this, or maybe this other thing, and there&rsquo;s a third thing maybe&rdquo; you actually have no success criteria.</p>
+<p>Defining a success criteria doesn&rsquo;t mean you cannot pivot.  Sometimes you spend two months trying to predict a particular issue and realize you cannot predict that issue, but you learned you can build a model for something else.  That&rsquo;s okay and you should pivot.  Having a defined success criteria also doesn&rsquo;t mean you can&rsquo;t refine it.  If you start with &ldquo;Our predictions need to be 90% accurate&rdquo; but you realize only 80% is achievable and still a financial win, it&rsquo;s okay to shift things.</p>
+<p>It&rsquo;s also important to recognize while alignment across teams is not an issue when you have one team, agreement with management is still important.  SMEs and Data Scientists don&rsquo;t randomly do projects together just because they can.  Typically a manger or somebody else approved the project and reviewed the financial and time costs and goals.  So it&rsquo;s important to at least chat with this manager about your progress, success criteria, and get feedback, especially if you pivot. The last thing you want is your success to become a failure because they expected you to do something different in comparison to the work you actually did.</p>
+<h1 id="miserable-data-teams"><a href="#miserable-data-teams" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a>Miserable Data Teams</h1>
+<p>This is a tangential topic, but this post is the right place for it.  If you talk to people in Data teams (e.g. Data Scientists and Data Analysts), you might meet frustrated people.  Online forums are filled with data people who express a lot of frustration at their data jobs, usually tied to misaligned expectations and not getting the support they feel they need.  I&rsquo;m not going to try to establish a single cause for this, but I would like to point out something.</p>
+<p>Data teams are ones who see and feel all the dysfunction arising from different teams of people working together when they all have different goals/metrics, and are sometimes incentivized in opposing ways.  This is contrast to people who only see the frustrations in their own org, and are somewhat isolated from the chaos around them.</p>
+<p>An example here might add clarity to this.  At one point I had a job in a customer facing role at a company with a lot of different products.  For reasons not worth talking about, one of the SaaS products my team supported was struggling in the market. Our entire team was miserable because we spent our days with product issues, frustrated customers, and basically ping-ponging between different internal groups (e.g. sales, product management, engineering management) trying to convince them to change direction because we could see with all the opposing forces and goals of each group, the customer was forgotten.</p>
+<p>Our state of misery was in complete contrast to developers in the Engineering org.  We&rsquo;d complain about an API making no sense to use it the way they expected customers to use it. They&rsquo;d brag about how the API could handle X million requests per second, how they provided seamless authentication, and how they solved all these interesting technical problems to do this.  They had no idea nearly zero customers had been willing to pay for the service after trying it.  The developers were buried down at the bottom of a large Engineering org, and to them they were hitting their goals and they were happy.</p>
+<p>Many Data people see problems across organizations.  You can be involved in a project spanning three orgs, and realize poor alignment across these orgs means this project is going to fail.  But you still have to work on it.  And if you do something to make one org happy, the other two are miserable and you are the face of that.  The data person becomes the focus point of all this dysfunction because they are only person who understands how all the pieces are supposed to fit together.</p>
+<p>The flipside of this is Data people can have a unique view of the organization and what is needed to move things in the right direction.  Some Data people are exposed to everything from analyzing individual rows of data to looking at organizational level metrics, targets, and motivations.  They have what is equivalent to a sociological understanding of what is really going on.  They can map how the micro is supposed to feed into the macro, and why things are not working.  With the right support, they can help inform leadership about out what&rsquo;s broken and needs to be fixed.</p>
+<h1 id="wrap-up"><a href="#wrap-up" class="anchor-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a>Wrap Up</h1>
+<p>The process different teams use to work together will define the success of your predictive maintenance efforts.  And it&rsquo;s only when you have a good success criteria that you can define a good process. The best path to the wrong destination is still the wrong path, and if you can&rsquo;t recognize when you have bad success criteria, you&rsquo;ll never be able to understand why your process keeps leading to failures.</p>
+<p>I&rsquo;ve worked on, and been involved in, a lot of predictive maintenance projects, and very few have failed because of a technical decision or the choice to use a simpler algorithm versus a more complex one.  If a lot of your projects are not showing any value after they make it to production, or the majority of your projects never make it to production, I&rsquo;d really recommend you step back and investigate your process and where things are going wrong.  Somebody probably knows what the issues are, but what they are trying to say is getting lost in corporate noise.</p>
+            </div>
+
+            
+
+
+        </article>
+
+        
+
+        
+
+
+        
+
+
+        
+
+
+        
+    
+    
+
+
+
+        
+    
+
+
+
+        
+
+
+        
+
+
+        
+    
+        
+        
+    
+    
+    
+    
+        <ul class="post-nav">
+            
+            
+                <li class="post-nav-next">
+                    <a href="/posts/is-your-predictive-maintenance-data-science-program-worth-it/" rel="next">Is Your Predictive Maintenance Data Science Program Worth it? &gt;</a>
+                </li>
+            
+        </ul>
+    
+
+
+
+        
+
+
+    </div>
+</main>
+
+
+            
+    <div id="back-to-top" class="back-to-top">
+        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon arrow-up"><path d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"/></svg></a>
+    </div>
+
+
+            
+    <footer id="footer" class="footer">
+        <div class="footer-inner">
+            <div class="site-info">©&nbsp;2023–2024&nbsp;Ujval Kamath</div><div class="site-copyright"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a></div>
+
+            
+    
+        <ul class="socials"><li class="socials-item">
+                    <a href="/rss.xml" target="_blank" rel="external noopener" title="RSS"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon social-icon"><path d="M19.199 24C19.199 13.467 10.533 4.8 0 4.8V0c13.165 0 24 10.835 24 24h-4.801zM3.291 17.415c1.814 0 3.293 1.479 3.293 3.295 0 1.813-1.485 3.29-3.301 3.29C1.47 24 0 22.526 0 20.71s1.475-3.294 3.291-3.295zM15.909 24h-4.665c0-6.169-5.075-11.245-11.244-11.245V8.09c8.727 0 15.909 7.184 15.909 15.91z"/></svg></a>
+                </li><li class="socials-item">
+                    <a href="https://github.com/ujkam" target="_blank" rel="external noopener" title="GitHub"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon social-icon"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+                </li><li class="socials-item">
+                    <a href="https://www.linkedin.com/in/ukamath-anc/" target="_blank" rel="external noopener" title="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon social-icon"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
+                </li></ul>
+    
+
+
+
+            
+        </div>
+    </footer>
+
+
+        </div>
+        
+
+        
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/medium-zoom@latest/dist/medium-zoom.min.js"></script>
+
+<script>
+    let imgNodes = document.querySelectorAll('div.post-body img');
+    imgNodes = Array.from(imgNodes).filter(node => node.parentNode.tagName !== "A");
+
+    mediumZoom(imgNodes, {
+        background: 'hsla(var(--color-bg-h), var(--color-bg-s), var(--color-bg-l), 0.95)'
+    })
+</script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/instant.page@5.1.0/instantpage.min.js" type="module" defer></script>
+
+
+
+
+
+
+    </body>
+</html>

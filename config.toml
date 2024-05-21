@@ -46,6 +46,9 @@ disablePathToLower = false
 relativeURLs = false
 uglyURLs = false
 
+# Ignore code directory
+ignorefiles = [ "code" ]
+
 # URL structure
 [permalinks]
     categories = "/categories/:slug/"
