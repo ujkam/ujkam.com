@@ -1,16 +1,14 @@
 
 +++
-title = "About"
+title = "ABOUT"
 date = "2024-01-01T00:00:00-4:00"
 +++
-Hi, I'm Ujval.  I've worked as a Data Scientist for over a decade now.  While it wasn't intentional, a large portion of that was focused on use cases involving Industrial Equipment.  This included Oil & Gas Extraction and Processing, Commercial Medical Equipment, and Automotive, Pharmaceutical, and Electrical Equipment Manufacturing.  Eight of those years were in the consulting arm of software companies, so I was able to see what different companies were trying to do with data and machine learning.  In all my jobs I worked with many different stakeholders and experienced both the business and technical side of things and got better at trying to understand why people wanted to do things, and not just the technical how.  
 
-This blog is really a manifestation of things I kept seeing across industries.  Stuff that bothered me, stuff that got stuck in a mental loop, things I wished I knew years ago, etc.  Hopefully writing these things down will help me mentally clarify my thoughts and remove these loops from my mind.  And I hope they will be informative and provide clarity to somebody else.
+Hi, I'm Ujval. I've worked as a Data Scientist for over a decade now. Eight years of those years were in the consulting arm of software companies, so I was able to see what different companies were trying to do with data and machine learning. As far as industries, I’ve worked on use cases in Oil & Gas Extraction and Processing, Medical Equipment, Automotive, Pharmaceutical, and Consumer Packaged Goods. In all my jobs I worked with many different stakeholders and experienced both the business and technical side of things, which made me better at understanding why people wanted to do things, and not just the technical how. 
 
-There's no shortage of amazing technical content in data science, and I don't feel like I have much to add there.  Most of the posts on this blog will be focused on exploring the business side of trying to do data science with Industrial Machines.  In other words, instead of talking about the latest algorithm or library, I'll probably focus on the people side of things and the financial realities we need to account for when trying to justify a data science project. 
+While it wasn't intentional, a large portion of that decade was focused on use cases involving Industrial Equipment and Machines. Consequently, my first blog posts will relate to predictive maintenance. They are a manifestation of things I kept seeing across industries. Stuff that bothered me, stuff that got stuck in a mental loop in my head, and things I wished I knew years ago. I hope they will be informative and provide clarity to somebody else, especially people who are just starting out.
 
-
-This website was built using [Hugo](https://gohugo.io/) and uses the [Meme Theme](https://github.com/reuixiy/hugo-theme-meme)
+This website was built using [Hugo](https://gohugo.io/) and uses the [Meme Theme](https://github.com/reuixiy/hugo-theme-meme)  It's currently deployed on Cloudflare Pages.
 
      
 
