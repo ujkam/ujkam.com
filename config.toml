@@ -843,10 +843,10 @@ ignorefiles = [ "code" ]
     #            specified format
     #            https://gohugo.io/functions/format/
 
-    displayPublishedDate = false
+    displayPublishedDate = true
     publishedDateIcon = "calendar-alt"
 
-    displayModifiedDate = true
+    displayModifiedDate = false
     modifiedDateIcon = "calendar-check"
 
     displayExpiredDate = false

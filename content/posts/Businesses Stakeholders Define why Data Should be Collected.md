@@ -1,6 +1,6 @@
 +++
 title = 'Businesses Stakeholders are the ones who Define why Data Should be Collected'
-date = 2024-01-01T00:00:00-04:00
+date = 2024-01-19T00:00:00-04:00
 lastmod = 2024-01-19T00:00:00-04:00 
 draft = false
 mermaid = true
