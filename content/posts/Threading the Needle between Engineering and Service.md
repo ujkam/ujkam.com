@@ -1,0 +1,116 @@
++++
+title = 'Threading the Needle between Engineering and Service'
+date = 2024-12-01T00:00:00-04:00
+draft = false
+mermaid = false
++++
+
+
+When you develop solutions for predictive maintenance, one of the challenges is being caught between the people who design/build the machines, and the people who service machines.  Whatever you build has to provide business value without stepping on the feet of either of those parties.  In this article I'm going to try and provide insight into what it means to walk this line.
+
+<!--more-->
+
+# Defining the Basics
+
+Before I jump into the main topic, I want to make sure readers have the right context to understand where this article is coming from.  Let's define the word "Engineering" as it's used in this article, and also discuss the type of predictive maintenance use cases I'm referring to.
+
+First, let's address the word "Engineering."  Typically when people discuss predictive maintenance, they're referencing a piece of hardware.  This can be a piece of manufacturing equipment, a piece of medical equipment, etc.  It consists of both hardware and software components.  The Engineering team is responsible for designing both the hardware and software and ensuring those components work together smoothly.
+
+It's important to realize these machines need to work predictably and reliably in commercial or industrial settings.  Designing them takes time, and you cannot release a product to a customer with the promise of basic features coming in the future.  Any software or hardware updates to these machines need to be done with a lot of testing, rigor, and come with comprehensive training.  Imagine if you operated an MRI machine at a hospital, and one day the user interface suddenly changed (due to a software update) in a way you did not understand, and you had cancel all patient scans.  The impact of any update to these types of machines can be very severe, so they have to be implemented thoughtfully.
+
+Some Engineering organizations don't have these type of real-world constraints.  After an overnight update, a mapping app on your phone might have a new interface.  While this is annoying, you'll probably take the time to figure it out, or you'll use another mapping app until you figure out this new interface.  In this article, I'm **not** referring to the Engineering orgs building this type of software product.  I'm referring to Engineering teams who build commercial devices where the real-world impacts (e.g. losing millions of dollars because you have to stop a factory) are well beyond alienating your users and reducing your revenue stream.
+
+People reading this article might find what I've just said to be obvious.  But I'm stating it explicitly to help people understand how Data Scientists interact with engineering organizations which build machines.  If the Data Science team requests something (e.g. more sensor data logging), there are more considerations to be accounted for compared to a software only product.  There is also a distinct line between what should be "owned" by Engineering teams versus Data Science teams because the ramifications of that ownership can be quite serious.  I'll discuss this in more detail later in the article.
+
+It's also important to understand how the Data Science projects I'm referencing in this article are conceptualized and how they show business value. In my experience, there are two types of Data Science projects.  One type generates value by creating new businesses and processes, and the other generates value by optimizing existing processes.
+
+Predictive Maintenance typically falls into the latter type.  The machines already exist, and the organizations servicing those machines already exist.  This means the fundamental business around operating and servicing also already exists, so the goal is to uncover opportunities to improve existing processes.
+
+A contrast to this is Data Science powering a new business venture. A good example of this was Stack Overflow jobs.  Stack Overflow is a popular website where programmers can ask and answer programming questions.  At some point Stack Overflow management saw value in also offering a job site, and they created one which used machine learning to power some features.  I'm not associated with Stack Overflow and have zero insight into what their decision process was.  But I can only imagine product management saw they had a large userbase, the mindshare of software people, and lots of data about tech skills, so they were in a good position to create a job matching platform
+
+Regardless of the type of Data Science you are doing, the ultimate constraint is always financial reality, or will the project(s) result in a financial benefit for the company.  Compared to a creating new business, optimizing existing processes can have more constraints because you have to work within the boundaries of those processes.  This is how, in predictive maintenance, the universe of problems Data Science teams can work on becomes constrained by Engineering on one side, and Service on the other.   
+
+# The Constraints 
+## Engineering
+
+If we continue this idea of constraints limiting what type of use cases Data Science teams
+can focus on, there are two main constraints from Engineering.  The first is trying to clearly understand what should be owned by Engineering, and what should be owned by the Data Science team.  The second is about getting support for what data is acquired and reported by the machine.
+
+### Who Should Own It?
+
+When we think about ownership, it's useful to imagine ownership as a spectrum, with the Engineering org on one end, and the Data Science team on the other.  On one end is
+building and supporting the machine hardware and software, which is clearly Engineering. As you move along the spectrum to topics where people are tying to do things with the data being generated by machines, we see use cases where it starts to make sense for the Data Science team to own them.  Keep in mind there no clear line delineating ownership, rather a fuzzy area.  
+
+Part of reason this area is fuzzy is because you need to know who is responsible when something goes wrong.  The person using the machine, or the customer, needs a clear escalation path when they are having an issue.  Sometimes "Who is willing to take the blame" is a powerful factor in deciding ownership.
+
+Providing a rigorous exploration of this fuzzy area is also nearly impossible without including specific details about the industry we are talking about.  Data Science teams can also be in the Engineering org, outside the Engineering org but closely aligned (e.g. like Product Management), or very independent from the Engineering org.  This type of structure only serves to increase the fuzziness.  So instead of writing a thesis on it, let's just explore it with a few examples.
+
+Take, for example, a diagnostic computer vision/imaging system used in a medical device like a CT Scanner.  For this type of machine, the computer vision system absolutely needs to be owned by Engineering because the imaging is part of the core functionality.  A major reason for this is because the ramifications to patients can be severe if the vision system is not working as expected.  The CT scanner company and their Engineering organization need to stand behind the quality of the product.
+
+However, with that same machine, it's possible a model predicting a component failure with the imaging system could be owned by a Data Science team.  Imagine some component in the imaging system gets very hot during usage, so there is a cooling system with a fluid pump.  If the pump malfunctions, the imaging system stops working, and the fix is to install a new pump.  When the pump fails, the entire machine is stopped.  
+
+The impact of this pump failure is very different from the vision system not working as expected.  If the pump fails, the machine goes down and no patients can be scanned.  Compare this to the liability if a vision system malfunction leads to an incorrect diagnosis.  If the model predicting a pump failure is incorrect, the cost is mostly the wasted time and materials of servicing that part.  A misdiagnosis is a far worse outcome.  So it makes sense for the Data Science team to own this pump failure use case instead of the Engineering team.
+
+Another example can be seen with operating limits.  Many machines have recommended operating limits (e.g. maximum recommended speed).  Ideally, there are software or hardware controls preventing those limits being exceeded.  It's very possible these limits are perceived as unnecessarily small, and a Data Science team is asked if they can determine a greater limit.  If the Data Science team works for the same company that built the machine, I think this situation is one where the they should involve Engineering because the ramifications of something going wrong can be large.  
+
+It's better if the Data Science team feeds their findings back to Engineering.  I have been involved in a project where we looked at historical data and provided evidence to the Engineering team about a limit being too low, resulting in too many warning/errors occurring.  It then fell on Engineering to investigate the issue and decide if they wanted to change the recommended limit.  It was also their responsibility to communicate this change of machine behavior to customers.
+
+One use case where this line is less clear is maintenance schedules.  Many machines come with recommended service intervals, or how often you need to service various parts of the machine.  This is similar to the mileage/time intervals for changing the oil in a car.  One strategy companies are interested in is "Predictive Service", where you use a data driven approach to determine when you should perform maintenance, as opposed to just following some guidelines.  
+
+Predictive Service is one area where the ownership is going to depend on how it's applied. If the company that sells the machine is also selling predictive service, Engineering should own it from a customer perspective, even if the Data Science team builds and provides the actual analytics and maintenance recommendations.  If a machine user (e.g. a customer) wants to optimize their maintenance intervals based on some production metric (e.g. quality of the product being manufactured), it's makes sense for a team outside Engineering to own it.
+
+Ownership should also consider political implications.  I was asked to develop a model to detect when a particular part started behaving abnormally.  The part had issues quite often, and there were probably 20+ of these identical parts in each machine, with 1000+ machines globally.  The impact of this abnormal behavior was quite high, and despite lots of conversations between us and Engineering, there was no near-term prioritization for a part redesign.  So it made sense for our team to build a model.
+
+ When the model detected abnormal behavior, the service technicians went out and replaced the part before it impacted the user/customer.  A few months after this model went into production and became known internally, Engineering let us know they had already redesigned the part and starting in three months, all faulty parts would be replaced by the more reliable version.  What my model really did was shine a light on an issue which was already a sore spot.  The model I built was taken out of production soon after.  There's more to this story, but let's leave it there.
+
+Issues that should be recalls or service bulletins, issues where a model shines a light where it shouldn't shine, issues where a model is used as a workaround for some other flaw in the device, etc, are all examples of where Data Science teams should be mindful of considering all the factors when it comes to which team should own it.
+
+### Getting Engineering Support
+
+To be able to successfully execute a use case, you also need support from Engineering to understand the hardware, software, and process generating the machine data you are trying to build a model on.
+
+I've written about machine data in another [article](https://ujkam.com/posts/deciding-what-data-to-collect/), but one thing to remember is machine data typically makes no sense on it's own.  Looking at machine data without context is no different than if I gave you a big file of numbers and told you to "extract business value" out of it.  To understand the data, you need to understand the process generating it.  You need to be able walk through what the machine is doing and how those actions are reflected in the data.
+
+It's possible for experts outside of Engineering to provide you with information about how the machine works.  An example are field technicians, who can be a fantastic source, as they have been trained to service the machine and have experience using data to diagnose and fix issues. People with similar expertise, such as technical support and machine operators, can also tell you a lot about the machine.
+
+Even though these people can help, it's important to remember the people in the Engineering org are the only ones who really know how the machine works.  Engineering teams provide the source material used to create training, documentation, and they are the ones who answer questions when things are not publicly documented.  So it's important for them to be in the loop when you have questions about the machine.
+
+Another form of support you need from Engineering is when you need new machine data that isn't currently collected and/or exposed.  This requires Engineering to add new functionality to the data collection software, and they are the only ones who can tell you if they are willing to add it and provide a timeline. Keep in mind if there are hardware or software limitations, they may not be able to add those features even if they wanted to, so things can be out of their hands as well.
+## Service
+
+If Engineering is responsible for designing the machine, the Service organization is responsible for the machines actually working in the field.  The Service personnel are the ones who know how the machines actually work in the real world, and how to fix problems when they occur.  Service orgs are constrained by very tangible and non-negotiable things like the availability of spare parts and number of people available at any given time to fix an issue.
+
+These practical constraints have a direct effect on predictive maintenance use cases, because it means models have to be pragmatically useful, and it's not enough to create models that look good in metrics, but are practically unfeasible. Here are a few examples of these constraints.
+
+Due to personnel and logistical limitations, Service orgs might need a defined minimum (e.g. 7 days) amount of advance scheduling/lead-time to be able to respond to non-urgent issues.  This means predictive models need to detect an issue and notify the service personnel with at least that minimum lead time.  Even if you develop a high accuracy model, but it only provides 2 days of advance warning of a part breaking, it's not useful to the service organization because they cannot act on them.
+
+Another constraint comes from the varying diagnostic skill levels of the people (service technicians) who fix the machines.  Some technicians are very good at figuring out the root cause of a complex issue, and others are better at following a diagnostic rubric and adhering to clear instructions.  This has a direct implication on predictive models, because you cannot expect every technician to be able to determine the cause of a message like  "Model says something abnormal is occurring with system X."  This limits the use cases to issues where it's possible to create a highly prescriptive diagnostic rubric with clear repair instructions, so the technician knows exactly what to do with a prediction.  It's possible many types of models, or even the use of machine learning in general, becomes impractical because of this. 
+
+Another issue can arise from supply chain constraints.  Parts availability issues can mean certain parts are hard to get, so nobody will change them unless they are replacing a  broken part that is already impacting a customer.  What this means is even if a model predicting a part will break is of theoretically high business value, nobody wants to take the risk and possibly answer a question like "Why did we change this part for customer Z when it wasn't even broken, and now this other important customer is screaming because we don't have a part for them."  It's challenging for people to stick their necks out and say they'll support a predictive model in this situation. 
+
+### Service Personnel Can Provide Expert Knowledge
+
+In my experience, you need a subject matter expert from service to be able to talk to you about the machine/parts, and to walk you through what the machine is doing and how this is reflected in the actual data.  These types of conversations are what allows a Data Scientist to build an appropriate data pipeline (e.g. feature engineering) and the right model evaluation metrics.  To be able to have these conversations, people need to be available.  Many times, the service people with the skills to help just don't have the time to support the Data Science team because they have to do their primary job of ensuring machines are running.
+
+Organizations can try to deal with this people availability issue in different ways.  One possibility is to ask people from the Engineering org to support these discussions because Engineering staff know how the machine works, and they typically travel a lot less than service personal, giving them more flexibility in their schedules.  The challenge with this is  sometimes Engineering has limited exposure to machines outside of a testing environment, and they have limited experience in crawling through data to diagnose and repair a broken machine. It's a lot like talking with a teacher versus a practitioner.  You need both, but each of them helps you to solve different types of problems.
+
+What this boils down to is certain use cases are never going to be practical because nobody from the Service org can find the time to support them.  This can be extremely frustrating for Data Science teams because you simply cannot pursue some opportunities when nobody has the time to keep digging through things with you until you come up with a working solution. 
+### Service Data
+
+Service orgs tend to have their own data, separate from the data generated by the machine.  For predictive maintenance, this includes information about every service event, such as a ticket number, customer call tracking, diagnostic and resolution steps, parts changed, repair time, what the issue was, etc.  If you are building an machine learning model, these service events are the labels or "ground truth" you are trying to predict.
+
+Unlike machine data, service data is human generated and it's messy.  You need people from service to help you interpret it properly.  This is especially important if the data is global because different regions can have different standards of how the data is supposed to be entered.  I know of at least one project where someone came up with a seemingly great performing model, only to see the model performance collapse after they learned they had misinterpreted the labels in the service event data.  The service experts are the only ones who can point out and explain the nuances of their service data.
+# Getting Caught In the Middle
+
+A Data Science team working in this environment has to navigate a narrow path to find use cases where they can deliver actual value to the business.  And they have to do this while getting the support of Engineering and Service, even if that means the scope of what they can do is greatly reduced.  Sometimes the path is so narrow, you'll have to admit advanced analytics and machine learning isn't even feasible.
+
+This may sound frustrating, but one major benefit is it forces you to be grounded in projects with actual impact.  Working with Service provides you the input to understand what really matters to them and customers, and working with Engineering provides you with the foundational knowledge needed to build a successful solution.  With input from both sides, you can avoid working on science projects with zero impact.
+
+For most of this article, there is the tacit assumption of the Data Science team having access to Engineering and Service.  In many cases, this isn't true.  There are companies building machines, but they don't operate or service them.  And there are service organizations (think about your car mechanic) who only know as much about the actual engineering of the machine as a repair/service manual tells them.  If you work for one of these companies, you might assume it's easier to be a Data Scientist because you only have a constraint on one side.
+
+It's possible having a single source of feedback actually makes things harder.  I once did some work for a machine builder (Engineering) who wanted an IoT powered Analytics add-on, and they wanted some input on what data they could use to support this type of service.  I asked them if we could talk about what problems their customers saw with their machines, and their answer was an honest "We don't use the machines, we only build them.  So we don't know."  I'm sure this answer was a bit exaugurated, since they must have had some form of product management to understand customer needs and major issues.  But at the end of the day, they didn't understand the day-to-day operational challenges their customers faced well enough to provide useful input for Analytics features people would be willing to pay for.  It left me in the position of politely saying I wasn't sure what I could do for them.
+
+On the other side, if the only input you have is from service, it's entirely possible to be in a situation where you cannot understand the data available to you.  And without Engineering to provide insight, sometimes it's not even clear if the data accurately represents what is happening in the machine.  One possible end result is the only feasible use cases are of low business value, and a simple rules based approach is the only option.  There no real need for a Data Scientist in this situation.
+# Everybody Faces Constraints
+
+To wrap things up, let's talk a bit more about constraints.  I've talked about Data Scientists walking between Engineering and Service, but these are just another way of saying the theoretical and the practical.  Data Scientists working on other use cases for machines, and in other industries, walk this same line when they try to figure out if they can build a useful model based purely on data with no understanding of the process that generated the data, or trying to incorporate some of the process knowledge to improve the model.  When you need both, it's always going to limit the number of possible use cases.  But it has the benefit of focusing your work, so you can find things with an actual financial impact.
