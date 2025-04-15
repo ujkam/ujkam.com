@@ -11,4 +11,6 @@ My posts tend to be long-form.  Part of why I write this way is the squishy natu
 
 I hope my writings will be informative and provide clarity to somebody else, especially people who are just starting out.
 
+With the arrival of LLMs, I feel like I have to add this - the writing on this site is 100% me and 0% LLMs. Writing is one of the few activities I have where I can get into a flow state, because I can just write without interruption, even if what I'm writing is a disorganized mess.  There are other things I enjoy doing, but it's hard to not get interrupted. For example, I enjoy coding, but it's full of interruptions - looking up things, debugging an error, and trying to refactor so things stay in a logical order.  I write here because I enjoy it, not because I have to, so there's no value in me using an LLM to write any part of this blog.
+
 This website was built using [Hugo](https://gohugo.io/) and uses the [Meme Theme](https://github.com/reuixiy/hugo-theme-meme) 
