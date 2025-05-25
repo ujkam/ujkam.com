@@ -212,32 +212,10 @@ While these processes can slow you down, it also allows you to enforce them when
 
 Like many others, I find many business processes frustrating and sometimes nonsensical.  This is especially true for processes created outside of your team.  I do, however, realize they exist to to try and prevent bigger problems.  I think it's worth the effort to come to terms with why business processes are needed, and to develop a proper understanding of the processes directly effecting your job.  People will take you more seriously if you actually understand the processes you are a part of.
 
-# One Last Thing
+## Internal Team Dynamics -  Management Issues or Process Issues?
 
-To finish up this article, I just want to briefly talk about processes internal to a Data Science team.  At least in my view, these aren't rigid processes as much as they are best practices and checklists.  If you've got a healthy team that works well together, you trust each other to do the right thing and learn from mistakes.  If a checklist or best practice needs to be updated, you discuss it and change it without interference from outside the team.  However, if you've got team issues or a problematic teammate, creating rigid processes can become a dysfunctional way to deal with it, since it forces people to do things in a certain way.  It also allows you to point the finger if someone doesn't follow the "process."  Personally, I feel like these things are people management issues, not really process issues.  That's the reason I haven't included these types of topics in the business process section.
+Something I've purposefully not talked much about are internal processes created by the Data Science team for the Data Science team, not other teams.  At least in my view, these aren't rigid processes as much as they are best practices and checklists.  If you've got a healthy team that works well together, you trust each other to do the right thing and learn from mistakes.  If a checklist or best practice needs to be updated, you discuss it and change it without needing input from outside the team.  However, if you've got team issues or a problematic teammate, creating rigid processes can become a dysfunctional way to deal with it, since it forces people to do things in a certain way.  It also allows you to point the finger if someone doesn't follow the "process."  Personally, I feel like these things are people management issues, not really process issues.  I know I'm being optimistic here. Sometimes you're forced to create these types of processes because politics prevents you from doing what you really need to do.  Still, I don't think these issues fit under the idea of a business process.
 
+# Not Trying To Cover It All
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+I've written this article from the point of a view of a Data Scientist.  Data Science is really broad, so it's really from the point of view of a specific type of Data Scientist.  If you feel like I've missed the categories and domains you're familiar with, you're right.  There's a entire universe of work, functions, and job roles I'm not familiar with.  I haven't tried to cover it all.
