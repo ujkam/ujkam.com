@@ -1,0 +1,86 @@
+html {
+  font-size: 13pt;
+}
+
+#menu-blur {
+  opacity: 1 !important;
+  #box-shadow: 0 10px 5px rgba(0, 0, 0, 0.08)!important;
+  #background-color: rgb(000, 000, 255) !important;
+  #backdrop-filter: none !important;
+  #transition: none !important;
+  #background: linear-gradient(to right, #4f46e5, #06b6d4);
+}
+
+
+/* Add clear borders and cell shading to tables */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+
+table th,
+table td {
+  border: 1px solid #999;
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+
+table th {
+  background-color: #eaeaea;  
+}
+
+table tr:nth-child(even) {
+  background-color: #f0f0f0;
+}
+
+.dark .prose table th,
+.dark .prose table td {
+  border: 1px solid #888; 
+}
+
+.dark .prose table th {
+  background-color: #2f3f55
+}
+
+/* Row striping with real contrast */
+.dark .prose table tr:nth-child(odd) {
+  background-color: #1e2a3a;  /* darker blue */
+}
+
+.dark .prose table tr:nth-child(even) {
+  background-color: #26354a;  /* lighter blue */
+/* Decrease spacing between line elements*/
+
+
+/*
+.article-content ul li,
+.article-content ol li,
+.article-content ul ul,
+.article-content ol ol,
+.article-content ul ol,
+.article-content ol ul,
+.article-content li > ol,
+.article-content li > ul,
+.article-content li p,
+.article-content ol > li + li,
+.prose ul > li + li {
+  margin: 0.1rem;
+  margin-top: 0.1rem;
+  margin-bottom: 0.1rem;
+  padding-top: 0;
+}
+
+/*
+
+ /*
+.prose ul ul,
+.prose ol ol,
+.prose ul ol,
+.prose ol ul {
+  margin: 0.1rem;  
+}
+
+*/
+

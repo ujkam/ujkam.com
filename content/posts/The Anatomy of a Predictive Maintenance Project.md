@@ -3,11 +3,12 @@ title = 'The Anatomy of a Predictive Maintenance Project'
 date = 2024-04-15T00:00:00-04:00
 draft = false
 mermaid = false
+summary = "When conceptualizing and implementing a predictive maintenance project, it can be hard to grasp the entire chain of people and technology needed for success.  In this post I'll try to break down all the people and teams needed for this type of project, and also provide insight into how these people work together."
 +++
 
-When conceptualizing and implementing a predictive maintenance project, it can be hard to grasp the entire chain of people and technology needed for success.  In this post I'll try to break down all the people and teams needed for this type of project, and also provide insight into how these people work together.
+# Assumptions
 
-<!--more-->
+When conceptualizing and implementing a predictive maintenance project, it can be hard to grasp the entire chain of people and technology needed for success.  In this post I'll try to break down all the people and teams needed for this type of project, and also provide insight into how these people work together.
 
 An alternate title I had for this post was "How much is my predictive maintenance program really going to cost?"  The goal is not give a dollar amount, but really to understand how all the different people and pieces fit together so you can fully conceptualize the scope of one of these programs.
 

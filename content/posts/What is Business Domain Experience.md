@@ -3,13 +3,15 @@ title = 'What is Business Domain Experience?'
 date = 2025-05-15T00:00:00-04:00
 draft = false
 mermaid = false
+summary = "As a Data Scientist, one popular piece of career advice is that you should have business domain experience (or expertise) and not just technical skills.  But what is 'domain experience' exactly, and why does it help differentiate one person from another?  In this post I'll talk about the different kinds of domain expertise I've seen at all the different companies where I've worked."
 +++
+
+# Introduction 
 
 As a Data Scientist, one popular piece of career advice is that you should have business domain experience (or expertise) and not just technical skills.  But what is "domain experience" exactly, and why does it help differentiate one person from another?  In this post I'll talk about the different kinds of domain expertise I've seen at all the different companies where I've worked.
 
-<!--more-->
-
 When writing these articles, I try not to make too many assumptions about the reader.  Consequently, I've tried to explicitly define some terms and concepts I use to explain the different types of expertise.  Readers with career experience may find these explanations superfluous, but I think it will help clarify what exactly it is I'm referring to when I use terms like "the business" and "industry."  Students, people earlier in their careers, and people buried near the bottom of a 8 layer org chart with limited exposure to the larger business, might find the explicitness useful.
+
 # Defining "The Business"
 
 In this article, I use terms like "the business" and "business people."  To reduce confusion, I think it's worth the effort to clarify what I mean by the term "business."

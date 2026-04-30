@@ -3,11 +3,12 @@ title = 'Deciding what Data to Collect'
 date = 2024-01-23T00:00:00-04:00
 draft = false
 mermaid = true
+summary = "In my we looked at how stakeholders and organizational structures influence decisions about what data is collected and exposed for use.  If you haven't seen machine data before, that post might have felt a little abstract and some things might have felt contradictory (e.g. how does one look at the events before a failure without any sensor data?).  For people who prefer concrete details and real examples, this post is for you."
 +++
 
-In my [**previous post**]({{< ref "Businesses Stakeholders Define why Data Should be Collected" >}}), we looked at how stakeholders and organizational structures influence decisions about what data is collected and exposed for use.  If you haven't seen machine data before, that post might have felt a little abstract and some things might have felt contradictory (e.g. how does one look at the events before a failure without any sensor data?).  For people who prefer concrete details and real examples, this post is for you. 
+# Introduction
 
-<!--more-->
+In my [**previous post**]({{< ref "Businesses Stakeholders Define why Data Should be Collected" >}}), we looked at how stakeholders and organizational structures influence decisions about what data is collected and exposed for use.  If you haven't seen machine data before, that post might have felt a little abstract and some things might have felt contradictory (e.g. how does one look at the events before a failure without any sensor data?).  For people who prefer concrete details and real examples, this post is for you. 
 
 When I was involved in my first predictive maintenance project, I had a fairly naive view of machines and the business of deriving value from machine data.  In my mind there was a machine that generated a lot of data and you analyzed that data.  I didn't really recognize or think about topics like
 - What's the bare minimum data actually needed to run this machine?
@@ -23,22 +24,22 @@ A good starting place is to understand how a machine works and what data can be 
 
 To explore what data is needed to run a basic machine, let's start with a very simple machine that cleans dirty beakers.  The **Clean Beakers** machine is basically just a conveyor belt that holds beakers and move them under some cleaning nozzles that spray cleaning fluids.  Let's imagine this machine operates in factory that mixes chemicals in glass beakers, and the beakers are reused.  The overall process of the factory can be seen in the diagram below.
 
-<div class="mermaid">
+{{< mermaid >}}
 flowchart TB
 LB[Load Beakers] --> CB[Clean  Beakers] -->
 MC[Mix Chemical in Beaker] -->
 EB[Pour Chemical Out of Beakers] --> LB
 style CB fill:#e69138
-</div>
+{{< /mermaid >}}
 
 A person starts this process by loading beakers onto the conveyor belt.  The beakers are first cleaned, and then moved to another machine that mixes some chemicals in these beakers.  The mixed chemical is poured out, and then a person carries these dirty beakers back to the starting point.  This process could also be automated. So instead of people, a big conveyor belt moves the beakers between the four stations (each box in the diagram is a station) in this loop.    
 
 Now that we understand how this beaker cleaning machine operates in the larger factory process, let's look at how the beakers are actually cleaned.   
 
-<div class="mermaid">
+{{< mermaid >}}
 flowchart TD
 	BP[Beaker Arrives] --> BS[Beaker Washed With Soap] --> BW[Beaker Washed With Water] --> BC[Beaker Clean]
-</div>
+{{< /mermaid >}}
 
 An upside down beaker (the mouth of the beaker is facing the floor) enters the machine on the conveyor belt.  The conveyor belt takes the beaker and moves it over the soap nozzle.  Once the soap is sprayed, the conveyor moves the beaker over the water nozzle and water is sprayed to rinse out the soap.  The beaker is now clean and is moved on to the next machine where the beaker is flipped over and the chemicals are mixed.
 
@@ -56,7 +57,7 @@ Based on that, this is the logic of how the machine functions and how the comput
 
 
 
-<div class="mermaid">
+{{< mermaid >}}
 flowchart TB
     BP([Person Places Beaker On Conveyor]) -->
 	LAS[Check Switch in Loading Area] 
@@ -73,7 +74,7 @@ flowchart TB
 	WS --> |No Beaker| DN3[Do Nothing]
 	WS --> |Beaker Present| WN --> MC3[Move Conveyor One Step]
 	MC3 --> BCF([Beaker Cleaning Finished]) --> |Repeat Process| BP
-</div>
+{{< /mermaid >}}
 
 Another way to read this chart is to see what signals the computer receives and the decision made based on that signal.  For example, let's think about the "Check Switch in Loading Area" box.  If somebody places a beaker there, the switch gets triggered and the "on" signal is sent to the computer.  The computer then sends a signal to the conveyor motor to move it.  Instead, if that switch was "off" because no beaker was there, the computer would do nothing.  So the data sent to and from the computer only consists of different on and off signals.
 

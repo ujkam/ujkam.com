@@ -3,11 +3,12 @@ title = 'False Alarms can Erase the Value of your Predictive Maintenance Efforts
 date = 2024-05-20T00:00:00-04:00
 draft = false
 mermaid = false
+summary = "People often underestimate how false alarms from predictive models can erase all the business value you set out to create from those models. In this post we will explore how label noise can drive up your service costs instead of decreasing it, and how a small fraction of incorrect predictions of impending machine issues can erase all the benefit created by correct predictions."
 +++
 
-People often underestimate how false alarms from predictive models can erase all the business value you set out to create from those models. In this post we will explore how label noise can drive up your service costs instead of decreasing it, and how a small fraction of incorrect predictions of impending machine issues can erase all the benefit created by correct predictions.
+# Introduction
 
-<!--more-->
+People often underestimate how false alarms from predictive models can erase all the business value you set out to create from those models. In this post we will explore how label noise can drive up your service costs instead of decreasing it, and how a small fraction of incorrect predictions of impending machine issues can erase all the benefit created by correct predictions.
 
 In my experience, many predictive maintenance projects follow this pattern.
 

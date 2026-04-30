@@ -3,11 +3,12 @@ title = 'Is Your Predictive Maintenance Data Science Program Worth it?'
 date = 2024-02-26T00:00:00-04:00
 draft = false
 mermaid = true
+summary = "One mistaken assumption I see people make with predictive maintenance programs is that the cost savings of many lower value projects will add up to a big number, so it's worth putting in the effort.  But sometimes saving a million dollars isn't worth it if it costs you more than that to implement it.  In this post we'll look at four types of programs and understand why some of them aren't worth doing because they have a negative return-on-investment (ROI)"
 +++
 
-One mistaken assumption I see people make with predictive maintenance programs is that the cost savings of many lower value projects will add up to a big number, so it's worth putting in the effort.  But sometimes saving a million dollars isn't worth it if it costs you more than that to implement it.  In this post we'll look at four types of programs and understand why some of them aren't worth doing because they have a negative return-on-investment (ROI)
+# An Anecdote
 
-<!--more-->
+One mistaken assumption I see people make with predictive maintenance programs is that the cost savings of many lower value projects will add up to a big number, so it's worth putting in the effort.  But sometimes saving a million dollars isn't worth it if it costs you more than that to implement it.  In this post we'll look at four types of programs and understand why some of them aren't worth doing because they have a negative return-on-investment (ROI)
 
 First, an anecdote.  At one of my previous jobs at a very large company, the CEO announced a contest for people to come up with business proposals on how the company could save money.  The CEO tasked SVPs and their teams to come up with ideas and estimate the cost savings of each.
 
@@ -39,7 +40,7 @@ To create a models for these failure modes,  the effort required exists on a spe
 
 Let's plot all of this in a 4-box.  This chart might seem extremely obvious to many readers, but you'd be surprised how many teams and projects end up in the bottom half of this chart while assuming they are in the top half.
 
-<div class="mermaid">
+{{< mermaid >}}
 %%{init: {"themeVariables": {"quadrant3Fill": "#fe8487"} }}%%
 quadrantChart
     title Is your Predictive Maintenance Program Worth Doing?
@@ -49,7 +50,7 @@ quadrantChart
     quadrant-2 Might be worth it
     quadrant-3 Don't Do it for the money
     quadrant-4 Might be worth it
-</div>
+{{< /mermaid >}}
 
 
 It's important to recognize this chart is summarizing an entire predictive maintenance program, and not just a single failure mode.  If you have twenty use cases and each of them has an ROI of $75K, the total ROI of your entire program is $1.5 million.  On the other hand, if you have one use case with an ROI of $250K and five others, where each turns out to have an ROI of negative $50K, maybe it's not worth it even to do the $250K one because it'll cost you more than that to implement.
@@ -90,7 +91,7 @@ The second way to scale is building models for multiple failure modes.  With thi
 
 Now that we've defined the axes terms and we have an understanding of scaling and how manual work can drive up costs, let's discuss the different quadrants.  
 
-## **High Business Value** and **Automatable**
+## High Business Value and Automatable
 
 In this quadrant a typical use case is a high value fault mode occurring often enough that building an automated solution lets you scale the cost savings across machines.  The "automated" part of this doesn't have to be the development of the initial model, but it's more about building variations of the model (e.g. for machines running in different environmental conditions), model retraining, etc.
 
@@ -100,7 +101,7 @@ It doesn't take a lot of math to see even if an early detection model only accur
 
 One question people could ask about the quadrant is "I have ten failure modes that _theoretically_ add up to a high ROI.  Would that fit into this quadrant?"  This question can only be answered after you start implementing the solution(s).  If you implement the first two manually, and then use that knowledge to automate the implementation of the next 8, and if your ROI numbers turn out to be accurate, then yes, you are in this quadrant.  The risk with 10 different failure modes is that there are many opportunities where your ROI expectations are incorrect or the automation simply doesn't work.  With ten failure modes it will take you a lot longer to determine if you can build the solution(s), as compared to a single high ROI fault mode where you are likely to figure that out much faster.
 
-## **High Business Value** and **Manual Model Development (Resists Automation)**
+## High Business Value and Manual Model Development (Resists Automation)
 
 There is a type of problem that is very high value, but developing an automated solution is difficult, resulting in no opportunity to scale.  This can happen because you have a very small fleet of specialized machines and there's limited opportunity to multiply the cost savings of each machine.  This can also happen if the data is very dirty and requires a lot of human provided context to clean, providing limited ways to automate and share this cleaning process across use cases.
 
@@ -112,7 +113,7 @@ Even if a highly automated solution cannot be built, a possible alternative is a
 
 This just speculation on my part, but when I've seen business pursue this type of problem, the cost savings, or potential cost savings, is well over $1 Million.  In other words, the problem is worth enough that you're willing to tolerate a complex mix of pre-built tooling (the automation) and also allocating a team of people to investigate manually.
 
-## **Low Business Value** and **Automatable**
+## Low Business Value and Automatable
 
 In this quadrant, and also the bottom half of the square, you've identified a number of lower value fault modes, when added together have a _positive_ ROI.  In other words, a handful of these use cases on their own aren't worth it, but a lot of them together make sense.  This quadrant could also be called the big box retailer strategy, which is to make a small profit on each item sold and rely on high sales volume to add those small bits together to make a big profit.
 
@@ -125,7 +126,7 @@ If your data is well labeled and mapped, you can build ways to automate the data
 Regarding the second point in the list above, it's also common to be in a situation where once you start working on a use case,  it becomes clear there is a lot of additional context needed nobody initially realized was important.  It can take weeks or months of discussions to uncover all this context because it takes that long to discover all the right questions to ask.  It's expected for the first few use cases you implement, the process is going to take more time and have more friction.  Initially you have to learn how to streamline the process of defining use cases, the communication strategy with SMEs/stakeholders, and identifying the right data.  But if after the tenth use case this process is almost as manual and cumbersome as the first four, you should make sure the process can really be streamlined or if you'll never be able to automate it.
  
 Something I've seen happen is the technology parts of these processes get automated, but the human parts never get streamlined beyond people building more trust with each other and creating some PowerPoint/Excel templates for defining the use case.  The end result is the infrastructure to develop and run these models in production and the integration with the service ticketing system is ready to go.  But the parts where the use case and "win" is clearly defined, the data is clearly identified and well labeled, and service personal are trained well enough to handle the alarms, is never streamlined.  What you end up with is a system ready to scale, but it never scales because you cannot automate the hard parts.  From there you fall directly into the next quadrant.
-## **Low Business Value** and **Manual Model Development (Resists Automation)**
+## Low Business Value and Manual Model Development (Resists Automation)
 
 This is the quadrant I'm going to write the most about because I've seen many companies end up here and not really recognize (or admit) it, even if some individuals involved in the project realize they are here.  This quadrant is also not limited to predictive maintenance or industrial machines.  People in other industries will recognize it as well.
 

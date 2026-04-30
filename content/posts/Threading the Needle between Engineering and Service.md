@@ -3,14 +3,12 @@ title = 'Threading the Needle between Engineering and Service'
 date = 2024-12-01T00:00:00-04:00
 draft = false
 mermaid = false
+summary = "When you develop solutions for predictive maintenance, one of the challenges is being caught between the people who design/build the machines, and the people who service machines.  Whatever you build has to provide business value without stepping on the feet of either of those parties.  In this article I'm going to try and provide insight into what it means to walk this line."
 +++
 
+# Establishing Context
 
 When you develop solutions for predictive maintenance, one of the challenges is being caught between the people who design/build the machines, and the people who service machines.  Whatever you build has to provide business value without stepping on the feet of either of those parties.  In this article I'm going to try and provide insight into what it means to walk this line.
-
-<!--more-->
-
-# Defining the Basics
 
 Before I jump into the main topic, I want to make sure readers have the right context to understand where this article is coming from.  Let's define the word "Engineering" as it's used in this article, and also discuss the type of predictive maintenance use cases I'm referring to.
 

@@ -3,13 +3,12 @@ title = 'Calculating Downtime is Harder Than it Sounds'
 date = 2024-07-31T00:00:00-04:00
 draft = false
 mermaid = false
+summary = "Predictive Maintenance is fundamentally about two goals - keeping your machines running, and making them run in the best way possible.  In other words, focus on reducing downtime and continuously optimizing how your machines run.  The concept of downtime is easy to describe and understand, but calculating it can be much more complex than people realize.  In this post I'll walk through calculating downtime for a factory machine, and how the complexity of the calculation reveals why using predictive models for predictive maintenance is so challenging."
 +++
 
+# Defining Downtime
+
 Predictive Maintenance is fundamentally about two goals - keeping your machines running, and making them run in the best way possible.  In other words, focus on reducing downtime and continuously optimizing how your machines run.  The concept of downtime is easy to describe and understand, but calculating it can be much more complex than people realize.  In this post I'll walk through calculating downtime for a factory machine, and how the complexity of the calculation reveals why using predictive models for predictive maintenance is so challenging.
-
-<!--more-->
-
-# Introducing Downtime
 
 Before discussing anything else, I'd like to make my goal for writing this post explicit. I'm not really trying to teach anybody how to calculate downtime. What I'm really trying to do is illustrate there being a lot of complexity and uncertainty in calculating downtime, a fundamental metric to understanding how well a machine runs.  And if something so simple sounding can be complex, it hints at how complex other KPIs or metrics can be.  This has a direct impact on how difficult it can be to create a dataset to train a useful predictive model to address a predictive maintenance use case.
 

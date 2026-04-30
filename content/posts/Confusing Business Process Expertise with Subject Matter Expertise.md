@@ -3,11 +3,12 @@ title = 'Confusing Business Process Expertise with Subject Matter Expertise'
 date = 2025-05-30T00:00:00-04:00
 draft = false
 mermaid = false
+summary = "It's extremely easy to confuse people with subject matter expertise with people who really only have business process expertise.  In other words, it's easy for a person who knows nothing about hammers to mistake a hammer salesman for a carpenter.  This type of mistake is common, and is detrimental to data and software projects."
 +++
 
-It's extremely easy to confuse people with subject matter expertise with people who really only have business process expertise.  In other words, it's easy for a person who knows nothing about hammers to mistake a hammer salesman for a carpenter.  This type of mistake is common, and is detrimental to data and software projects.    
+# Motivations
 
-<!--more-->
+It's extremely easy to confuse people with subject matter expertise with people who really only have business process expertise.  In other words, it's easy for a person who knows nothing about hammers to mistake a hammer salesman for a carpenter.  This type of mistake is common, and is detrimental to data and software projects.    
 
 There were two events that led to me writing this article.  The idea for it came to me after a layoff at a previous job.  Layoffs are almost always nonsensical when you look at the individual people who get laid off.  But if you abstract up from trying to figure out why one person was laid off and not another, you'll see some trends when you look at the people who survived and the job function they were performing. 
 
